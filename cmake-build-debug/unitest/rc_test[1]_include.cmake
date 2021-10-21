@@ -1,0 +1,5 @@
+if(EXISTS "/Users/fyb/Documents/GitHub/miniob-1/cmake-build-debug/unitest/rc_test[1]_tests.cmake")
+  include("/Users/fyb/Documents/GitHub/miniob-1/cmake-build-debug/unitest/rc_test[1]_tests.cmake")
+else()
+  add_test(rc_test_NOT_BUILT rc_test_NOT_BUILT)
+endif()

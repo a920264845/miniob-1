@@ -45,16 +45,16 @@ Table::~Table() {
 
   LOG_INFO("Table has been closed: %s", name());
 }
-
+//rc = table->create(table_file_path.c_str(), table_name, path_.c_str(), attribute_count, attributes);
 RC Table::create(const char *path, const char *name, const char *base_dir, int attribute_count, const AttrInfo attributes[]) {
 
-  if (nullptr == name || common::is_blank(name)) {
+  if (nullptr == name || common::is_blank(name)) { //判定是否为空或者空格
     LOG_WARN("Name cannot be empty");
     return RC::INVALID_ARGUMENT;
   }
   LOG_INFO("Begin to create table %s:%s", base_dir, name);
 
-  if (attribute_count <= 0 || nullptr == attributes) {
+  if (attribute_count <= 0 || nullptr == attributes) { //判定属性是否为空或属性个数为0
     LOG_WARN("Invalid arguments. table_name=%s, attribute_count=%d, attributes=%p",
         name, attribute_count, attributes);
     return RC::INVALID_ARGUMENT;
@@ -65,9 +65,12 @@ RC Table::create(const char *path, const char *name, const char *base_dir, int a
   // 使用 table_name.table记录一个表的元数据
   // 判断表文件是否已经存在
 
+//O_WRONLY 以只写方式打开文件
+//O_CREAT 若欲打开的文件不存在则自动建立该文件。
+//O_EXCL 如果O_CREAT 也被设置，此指令会去检查文件是否存在,不存在就建立文件，存在会导致打开文件错误
   int fd = ::open(path, O_WRONLY | O_CREAT | O_EXCL | O_CLOEXEC, 0600);
   if (-1 == fd) {
-    if (EEXIST == errno) {
+    if (EEXIST == errno) {  //当出现错误时系统会自动修改errno值
       LOG_ERROR("Failed to create table file, it has been created. %s, EEXIST, %s",
                 path, strerror(errno));
       return RC::SCHEMA_TABLE_EXIST;
@@ -92,7 +95,7 @@ RC Table::create(const char *path, const char *name, const char *base_dir, int a
     return RC::IOERR;
   }
 
-  // 记录元数据到文件中
+  // 记录元数据到文件中,具体的落盘实现，
   table_meta_.serialize(fs);
   fs.close();
 
@@ -717,4 +720,20 @@ RC Table::sync() {
   }
   LOG_INFO("Sync table over. table=%s", name());
   return rc;
+}
+
+RC Table::drop_table(const char *table_file_path,const char *data_file_path, const char *table_name) {
+    RC rc=IOERR;
+
+//    std::cout<<"table_path="<<table_file_path<<std::endl;
+//    std::cout<<"data_path="<<data_file_path<<std::endl;
+    if(std::remove(table_file_path)==0&&std::remove(data_file_path)==0){
+
+        rc=SUCCESS;
+
+    }else{
+        rc=IOERR_DELETE;
+
+    }
+    return rc;
 }

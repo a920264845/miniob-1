@@ -48,11 +48,11 @@ typedef struct {
 } BPFileSubHeader;
 
 typedef struct {
-  bool dirty;
-  unsigned int pin_count;
-  unsigned long acc_time;
-  int file_desc;
-  Page page;
+  bool dirty;  //标记是否是脏页
+  unsigned int pin_count;  //正在被多少线程使用
+  unsigned long acc_time; //
+  int file_desc; //
+  Page page; //对应的 page id
 } Frame;
 
 typedef struct {
@@ -60,6 +60,7 @@ typedef struct {
   Frame *frame;
 } BPPageHandle;
 
+//BPFileHandle 存储了file 的相关信息
 class BPFileHandle{
 public:
   BPFileHandle() {
@@ -83,7 +84,7 @@ public:
     frame = new Frame[size];
     allocated = new bool[size];
     for (int i = 0; i < size; i++) {
-      allocated[i] = false;
+      allocated[i] = false;   //初始化所有frame
       frame[i].pin_count = 0;
     }
   }

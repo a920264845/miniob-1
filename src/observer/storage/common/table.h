@@ -57,6 +57,8 @@ public:
   RC scan_record(Trx *trx, ConditionFilter *filter, int limit, void *context, void (*record_reader)(const char *data, void *context));
 
   RC create_index(Trx *trx, const char *index_name, const char *attribute_name);
+    RC drop_table(const char *table_file_path, const char *data_file_path, const char *table_name);
+
 
 public:
   const char *name() const;
@@ -100,6 +102,8 @@ private:
   int                     file_id_;
   RecordFileHandler *     record_handler_;   /// 记录操作
   std::vector<Index *>    indexes_;
+
+
 };
 
 #endif // __OBSERVER_STORAGE_COMMON_TABLE_H__

@@ -168,7 +168,7 @@ int list_file(const char *path, const char *filter_pattern, std::vector<std::str
 	regex_t reg;
 	if (filter_pattern)
 	{
-		const int res = regcomp(&reg, filter_pattern, REG_NOSUB);
+		const int res = regcomp(&reg, filter_pattern, REG_NOSUB); //把正则表达式编译成一种特定的数据格式
 		if (res)
 		{
 			char errbuf[256];
@@ -192,10 +192,11 @@ int list_file(const char *path, const char *filter_pattern, std::vector<std::str
 
 	files.clear();
 
-	struct dirent entry;
+
+	struct dirent entry;  //这个结构体包含了其他文件的名字以及指向与这些文件有关的信息的指针，也就是说这个结构体存储了table的名字，偏移量等信息
 	struct dirent * pentry = NULL;
 	char tmp_path[PATH_MAX];
-	while((0 == readdir_r(pdir, &entry, &pentry)) && (NULL != pentry))
+	while((0 == readdir_r(pdir, &entry, &pentry)) && (NULL != pentry))//这一步是获取db目录下的所有table的文件名
 	{
 		if ('.' == entry.d_name[0]) // 跳过./..文件和隐藏文件
 			continue;
@@ -205,7 +206,7 @@ int list_file(const char *path, const char *filter_pattern, std::vector<std::str
 			continue;
 
 		if (!filter_pattern || 0 == regexec(&reg, entry.d_name, 0, NULL, 0))
-			files.push_back(entry.d_name);
+			files.push_back(entry.d_name);//将所有table的name 存入 files;
 	}
 
 	if (filter_pattern)

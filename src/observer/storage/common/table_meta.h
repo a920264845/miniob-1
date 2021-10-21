@@ -63,7 +63,7 @@ private:
   static RC init_sys_fields();
 private:
   std::string   name_;
-  std::vector<FieldMeta>  fields_; // 包含sys_fields
+  std::vector<FieldMeta>  fields_; // 包含sys_fields,field存储的是这个table的所有属性列的信息
   std::vector<IndexMeta>  indexes_;
 
   int  record_size_ = 0;

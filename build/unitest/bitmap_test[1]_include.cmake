@@ -1,0 +1,5 @@
+if(EXISTS "/Users/fyb/Documents/GitHub/miniob-1/build/unitest/bitmap_test[1]_tests.cmake")
+  include("/Users/fyb/Documents/GitHub/miniob-1/build/unitest/bitmap_test[1]_tests.cmake")
+else()
+  add_test(bitmap_test_NOT_BUILT bitmap_test_NOT_BUILT)
+endif()

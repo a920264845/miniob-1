@@ -54,11 +54,11 @@ RC Db::init(const char *name, const char *dbpath) {
 RC Db::create_table(const char *table_name, int attribute_count, const AttrInfo *attributes) {
   RC rc = RC::SUCCESS;
   // check table_name
-  if (opened_tables_.count(table_name) != 0) {
+  if (opened_tables_.count(table_name) != 0) {// 将所有创建过得table存入了一个unordered_map中，unordered_map相对于map,他底层由哈希表实现，便于查找
     return RC::SCHEMA_TABLE_EXIST;
   }
 
-  std::string table_file_path = table_meta_file(path_.c_str(), table_name); // 文件路径可以移到Table模块
+  std::string table_file_path = table_meta_file(path_.c_str(), table_name); // 获取table路径
   Table *table = new Table();
   rc = table->create(table_file_path.c_str(), table_name, path_.c_str(), attribute_count, attributes);
   if (rc != RC::SUCCESS) {
@@ -69,6 +69,26 @@ RC Db::create_table(const char *table_name, int attribute_count, const AttrInfo 
   opened_tables_[table_name] = table;
   LOG_INFO("Create table success. table name=%s", table_name);
   return RC::SUCCESS;
+}
+RC Db::drop_table(const char *table_name) {
+    RC rc = RC::SUCCESS;
+
+    if (opened_tables_.count(table_name) == 0) {// 查找该table表是否存在
+
+        return RC::SCHEMA_TABLE_NOT_EXIST;
+    }
+   std::string table_file_path = table_meta_file(path_.c_str(), table_name); // 获取table路径
+   std::string table_data_path = table_data_file(path_.c_str(),table_name); //获取data路径
+
+    Table *table=opened_tables_[table_name];
+
+    rc=table->drop_table(table_file_path.c_str(),table_data_path.c_str(),table_name);
+    if(rc==SUCCESS){
+        opened_tables_.erase(table_name);
+//        std::cout<<"你成功删除我"<<table_name<<"了"<<std::endl;
+    }
+
+    return rc;
 }
 
 Table *Db::find_table(const char *table_name) const {
@@ -97,14 +117,14 @@ RC Db::open_all_tables() {
       return rc;
     }
 
-    if (opened_tables_.count(table->name()) != 0) {
+    if (opened_tables_.count(table->name()) != 0) {  //先判定一下是否已经有这个表了
       delete table;
       LOG_ERROR("Duplicate table with difference file name. table=%s, the other filename=%s", 
         table->name(), filename.c_str());
       return RC::GENERIC_ERROR;
     }
 
-    opened_tables_[table->name()] = table;
+    opened_tables_[table->name()] = table;      //判定 没有这个表，所以加入这个table
     LOG_INFO("Open table: %s, file: %s", table->name(), filename.c_str());
   }
 
@@ -135,3 +155,5 @@ RC Db::sync() {
   LOG_INFO("Sync db over. db=%s", name_.c_str());
   return rc;
 }
+
+

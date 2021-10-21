@@ -224,6 +224,7 @@ RC DiskBufferPool::get_this_page(int file_id, PageNum page_num, BPPageHandle *pa
   return RC::SUCCESS;
 }
 
+//分配页面
 RC DiskBufferPool::allocate_page(int file_id, BPPageHandle *page_handle)
 {
   RC tmp;
@@ -236,7 +237,7 @@ RC DiskBufferPool::allocate_page(int file_id, BPPageHandle *page_handle)
 
   int byte = 0, bit = 0;
   if ((file_handle->file_sub_header->allocated_pages) < (file_handle->file_sub_header->page_count)) {
-    // There is one free page
+    // There is one free page 此时还有空闲页可以分配
     for (int i = 0; i < file_handle->file_sub_header->page_count; i++) {
       byte = i / 8;
       bit = i % 8;

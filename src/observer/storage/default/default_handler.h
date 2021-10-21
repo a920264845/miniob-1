@@ -77,8 +77,8 @@ public:
    * 对于新关系中第i个属性，attributes数组中的第i个元素包含名称、
    * 类型和属性的长度（见AttrInfo结构定义）
    * @param relName
-   * @param attrCount
-   * @param attributes
+   * @param attrCount  表中属性个数
+   * @param attributes  是一个长度为attrCount的数组
    * @return
    */
   RC create_table(const char *dbname, const char *relation_name, int attribute_count, const AttrInfo *attributes);

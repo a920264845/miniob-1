@@ -63,7 +63,7 @@ void DefaultHandler::destroy() {
 }
 
 RC DefaultHandler::create_db(const char *dbname) {
-  if (nullptr == dbname || common::is_blank(dbname)) {
+  if (nullptr == dbname || common::is_blank(dbname)) {//判定字符是否为空或者是否为空格，
     LOG_WARN("Invalid db name");
     return RC::INVALID_ARGUMENT;
   }
@@ -75,6 +75,7 @@ RC DefaultHandler::create_db(const char *dbname) {
     return RC::SCHEMA_DB_EXIST;
   }
 
+  //不清楚干什么的
   if (!common::check_directory(dbpath)) {
     LOG_ERROR("Create db fail: %s", dbpath.c_str());
     return RC::GENERIC_ERROR; // io error
@@ -120,15 +121,21 @@ RC DefaultHandler::execute(const char *sql) {
 }
 
 RC DefaultHandler::create_table(const char *dbname, const char *relation_name, int attribute_count, const AttrInfo *attributes) {
-  Db *db = find_db(dbname);
+  Db *db = find_db(dbname);//获取到db
   if (db == nullptr) {
     return RC::SCHEMA_DB_NOT_OPENED;
   }
-  return db->create_table(relation_name, attribute_count, attributes);
+  return db->create_table(relation_name, attribute_count, attributes);//调用db的creat_table方法
 }
 
 RC DefaultHandler::drop_table(const char *dbname, const char *relation_name) {
-  return RC::GENERIC_ERROR;
+
+//    std::cout<<"你访问到我drop table了"<<std::endl;
+    Db *db = find_db(dbname);//获取到db
+    if (db == nullptr) {
+        return RC::SCHEMA_DB_NOT_OPENED;
+    }
+    return db->drop_table(relation_name);
 }
 
 RC DefaultHandler::create_index(Trx *trx, const char *dbname, const char *relation_name, const char *index_name, const char *attribute_name) {

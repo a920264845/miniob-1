@@ -1,0 +1,714 @@
+[2021-10-16 14:49:50 pid:10953 tid:11cf94e00  INFO: /Users/fyb/Documents/GitHub/miniob-1/src/observer/init.cpp init 204]>>Output configuration 
+Begin dump configuration
+[]
+
+[DefaultStorageStage]
+BaseDir=./miniob
+SystemDb=sys
+ThreadId=IOThreads
+
+[DefaultThreads]
+count=3
+
+[ExecuteStage]
+NextStages=DefaultStorageStage,MemStorageStage
+ThreadId=SQLThreads
+
+[IOThreads]
+count=3
+
+[LOG]
+LOG_CONSOLE_LEVEL=1
+LOG_FILE_LEVEL=3
+LOG_FILE_NAME=observer.log
+
+[MemStorageStage]
+ThreadId=IOThreads
+
+[MetricsStage]
+NextStages=TimerStage
+
+[NET]
+CLIENT_ADDRESS=INADDR_ANY
+MAX_CONNECTION_NUM=8192
+PORT=6789
+
+[OptimizeStage]
+NextStages=ExecuteStage
+ThreadId=SQLThreads
+
+[ParseStage]
+NextStages=OptimizeStage
+ThreadId=SQLThreads
+
+[PlanCacheStage]
+NextStages=ExecuteStage,ParseStage
+ThreadId=SQLThreads
+
+[QueryCacheStage]
+NextStages=PlanCacheStage
+ThreadId=SQLThreads
+
+[ResolveStage]
+NextStages=QueryCacheStage
+ThreadId=SQLThreads
+
+[SEDA_BASE]
+EventHistory=false
+MaxEventHistoryNum=100
+STAGES=SessionStage,ExecuteStage,OptimizeStage,ParseStage,ResolveStage,PlanCacheStage,QueryCacheStage,DefaultStorageStage,MemStorageStage,TimerStage,MetricsStage
+ThreadPools=SQLThre
+[2021-10-16 14:49:50 pid:10953 tid:11cf94e00  INFO: /Users/fyb/Documents/GitHub/miniob-1/deps/common/seda/init.cpp init_seda 67]>>(Re)Starting State: Pid: 10953 Time: Sat Oct 16 14:49:50 2021
+
+[2021-10-16 14:49:50 pid:10953 tid:11cf94e00  INFO: /Users/fyb/Documents/GitHub/miniob-1/deps/common/seda/init.cpp init_seda 68]>>The process Name is observer
+[2021-10-16 14:49:50 pid:10953 tid:11cf94e00  INFO: /Users/fyb/Documents/GitHub/miniob-1/deps/common/seda/seda_config.cpp init_event_history 202]>>Successfully init_event_history, EventHistory:0, MaxEventHops:100
+[2021-10-16 14:49:50 pid:10953 tid:7000099dc000  INFO: /Users/fyb/Documents/GitHub/miniob-1/deps/common/seda/thread_pool.cpp run_thread 243]>>threadid = 7000099dc000, threadname = IOThreads
+
+[2021-10-16 14:49:50 pid:10953 tid:700009853000  INFO: /Users/fyb/Documents/GitHub/miniob-1/deps/common/seda/thread_pool.cpp run_thread 243]>>threadid = 700009853000, threadname = SQLThreads
+
+[2021-10-16 14:49:50 pid:10953 tid:7000098d6000  INFO: /Users/fyb/Documents/GitHub/miniob-1/deps/common/seda/thread_pool.cpp run_thread 243]>>threadid = 7000098d6000, threadname = SQLThreads
+
+[2021-10-16 14:49:50 pid:10953 tid:11cf94e00  INFO: /Users/fyb/Documents/GitHub/miniob-1/deps/common/seda/seda_config.cpp init_stages 348]>>Stage SessionStage use threadpool DefaultThreads.
+[2021-10-16 14:49:50 pid:10953 tid:700009b65000  INFO: /Users/fyb/Documents/GitHub/miniob-1/deps/common/seda/thread_pool.cpp run_thread 243]>>threadid = 700009b65000, threadname = DefaultThreads
+
+[2021-10-16 14:49:50 pid:10953 tid:11cf94e00  INFO: /Users/fyb/Documents/GitHub/miniob-1/deps/common/seda/seda_config.cpp init_stages 348]>>Stage ExecuteStage use threadpool DefaultThreads.
+[2021-10-16 14:49:50 pid:10953 tid:700009be8000  INFO: /Users/fyb/Documents/GitHub/miniob-1/deps/common/seda/thread_pool.cpp run_thread 243]>>threadid = 700009be8000, threadname = DefaultThreads
+
+[2021-10-16 14:49:50 pid:10953 tid:700009959000  INFO: /Users/fyb/Documents/GitHub/miniob-1/deps/common/seda/thread_pool.cpp run_thread 243]>>threadid = 700009959000, threadname = IOThreads
+
+[2021-10-16 14:49:50 pid:10953 tid:700009a5f000  INFO: /Users/fyb/Documents/GitHub/miniob-1/deps/common/seda/thread_pool.cpp run_thread 243]>>threadid = 700009a5f000, threadname = IOThreads
+
+[2021-10-16 14:49:50 pid:10953 tid:700009ae2000  INFO: /Users/fyb/Documents/GitHub/miniob-1/deps/common/seda/thread_pool.cpp run_thread 243]>>threadid = 700009ae2000, threadname = DefaultThreads
+
+[2021-10-16 14:49:50 pid:10953 tid:7000097d0000  INFO: /Users/fyb/Documents/GitHub/miniob-1/deps/common/seda/thread_pool.cpp run_thread 243]>>threadid = 7000097d0000, threadname = SQLThreads
+
+[2021-10-16 14:49:50 pid:10953 tid:11cf94e00  INFO: /Users/fyb/Documents/GitHub/miniob-1/deps/common/seda/seda_config.cpp init_stages 348]>>Stage OptimizeStage use threadpool DefaultThreads.
+[2021-10-16 14:49:50 pid:10953 tid:11cf94e00  INFO: /Users/fyb/Documents/GitHub/miniob-1/deps/common/seda/seda_config.cpp init_stages 348]>>Stage ParseStage use threadpool DefaultThreads.
+[2021-10-16 14:49:50 pid:10953 tid:11cf94e00  INFO: /Users/fyb/Documents/GitHub/miniob-1/deps/common/seda/seda_config.cpp init_stages 348]>>Stage ResolveStage use threadpool DefaultThreads.
+[2021-10-16 14:49:50 pid:10953 tid:11cf94e00  INFO: /Users/fyb/Documents/GitHub/miniob-1/deps/common/seda/seda_config.cpp init_stages 348]>>Stage PlanCacheStage use threadpool DefaultThreads.
+[2021-10-16 14:49:50 pid:10953 tid:11cf94e00  INFO: /Users/fyb/Documents/GitHub/miniob-1/deps/common/seda/seda_config.cpp init_stages 348]>>Stage QueryCacheStage use threadpool DefaultThreads.
+[2021-10-16 14:49:50 pid:10953 tid:11cf94e00  INFO: /Users/fyb/Documents/GitHub/miniob-1/src/observer/storage/default/default_storage_stage.cpp set_properties 86]>>Use sys as system db
+[2021-10-16 14:49:50 pid:10953 tid:11cf94e00  INFO: /Users/fyb/Documents/GitHub/miniob-1/src/observer/storage/default/default_handler.cpp init 52]>>Default handler init with ./miniob success
+[2021-10-16 14:49:50 pid:10953 tid:11cf94e00  INFO: /Users/fyb/Documents/GitHub/miniob-1/src/observer/storage/common/db.cpp open_all_tables 111]>>All table have been opened. num=0
+[2021-10-16 14:49:50 pid:10953 tid:11cf94e00  INFO: /Users/fyb/Documents/GitHub/miniob-1/src/observer/storage/default/default_storage_stage.cpp set_properties 110]>>Open system db success: sys
+[2021-10-16 14:49:50 pid:10953 tid:11cf94e00  INFO: /Users/fyb/Documents/GitHub/miniob-1/deps/common/seda/seda_config.cpp init_stages 348]>>Stage DefaultStorageStage use threadpool DefaultThreads.
+[2021-10-16 14:49:50 pid:10953 tid:11cf94e00  INFO: /Users/fyb/Documents/GitHub/miniob-1/deps/common/seda/seda_config.cpp init_stages 348]>>Stage MemStorageStage use threadpool DefaultThreads.
+[2021-10-16 14:49:50 pid:10953 tid:11cf94e00  INFO: /Users/fyb/Documents/GitHub/miniob-1/deps/common/seda/seda_config.cpp get_thread_pool 292]>>Not set thread_pool_id for TimerStage, use default threadpool DefaultThreads
+[2021-10-16 14:49:50 pid:10953 tid:11cf94e00  INFO: /Users/fyb/Documents/GitHub/miniob-1/deps/common/seda/seda_config.cpp init_stages 348]>>Stage TimerStage use threadpool DefaultThreads.
+[2021-10-16 14:49:50 pid:10953 tid:11cf94e00  INFO: /Users/fyb/Documents/GitHub/miniob-1/deps/common/seda/seda_config.cpp get_thread_pool 292]>>Not set thread_pool_id for MetricsStage, use default threadpool DefaultThreads
+[2021-10-16 14:49:50 pid:10953 tid:11cf94e00  INFO: /Users/fyb/Documents/GitHub/miniob-1/deps/common/seda/seda_config.cpp init_stages 348]>>Stage MetricsStage use threadpool DefaultThreads.
+[2021-10-16 14:49:50 pid:10953 tid:11cf94e00  INFO: /Users/fyb/Documents/GitHub/miniob-1/deps/common/metrics/metrics_registry.cpp register_metric 37]>>Successfully register metric :DefaultStorageStage.query
+[2021-10-16 14:49:50 pid:10953 tid:11cf94e00  INFO: /Users/fyb/Documents/GitHub/miniob-1/deps/common/metrics/metrics_registry.cpp register_metric 37]>>Successfully register metric :SessionStage.sql
+[2021-10-16 14:49:50 pid:10953 tid:11cf94e00  INFO: /Users/fyb/Documents/GitHub/miniob-1/src/observer/init.cpp init 228]>>Successfully init utility
+[2021-10-16 14:49:50 pid:10953 tid:11cf94e00  INFO: /Users/fyb/Documents/GitHub/miniob-1/deps/common/metrics/metrics_registry.cpp register_metric 37]>>Successfully register metric :SessionStage.readsocket
+[2021-10-16 14:49:50 pid:10953 tid:11cf94e00  INFO: /Users/fyb/Documents/GitHub/miniob-1/deps/common/metrics/metrics_registry.cpp register_metric 37]>>Successfully register metric :SessionStage.writesocket
+[2021-10-16 14:49:50 pid:10953 tid:11cf94e00  INFO: /Users/fyb/Documents/GitHub/miniob-1/src/observer/net/server.cpp start_tcp_server 330]>>Listen on port 6789
+[2021-10-16 14:49:50 pid:10953 tid:11cf94e00  INFO: /Users/fyb/Documents/GitHub/miniob-1/src/observer/net/server.cpp start_tcp_server 348]>>Observer start success
+[2021-10-16 14:50:50 pid:10953 tid:700009be8000  INFO: /Users/fyb/Documents/GitHub/miniob-1/deps/common/metrics/log_reporter.cpp report 35]>>DefaultStorageStage.query:mean:0,tps:0
+[2021-10-16 14:50:50 pid:10953 tid:700009be8000  INFO: /Users/fyb/Documents/GitHub/miniob-1/deps/common/metrics/log_reporter.cpp report 35]>>SessionStage.readsocket:mean:0,tps:0
+[2021-10-16 14:50:50 pid:10953 tid:700009be8000  INFO: /Users/fyb/Documents/GitHub/miniob-1/deps/common/metrics/log_reporter.cpp report 35]>>SessionStage.sql:mean:0,tps:0
+[2021-10-16 14:50:50 pid:10953 tid:700009be8000  INFO: /Users/fyb/Documents/GitHub/miniob-1/deps/common/metrics/log_reporter.cpp report 35]>>SessionStage.writesocket:mean:0,tps:0
+[2021-10-16 14:51:50 pid:10953 tid:700009ae2000  INFO: /Users/fyb/Documents/GitHub/miniob-1/deps/common/metrics/log_reporter.cpp report 35]>>DefaultStorageStage.query:mean:0,tps:0
+[2021-10-16 14:51:50 pid:10953 tid:700009ae2000  INFO: /Users/fyb/Documents/GitHub/miniob-1/deps/common/metrics/log_reporter.cpp report 35]>>SessionStage.readsocket:mean:0,tps:0
+[2021-10-16 14:51:50 pid:10953 tid:700009ae2000  INFO: /Users/fyb/Documents/GitHub/miniob-1/deps/common/metrics/log_reporter.cpp report 35]>>SessionStage.sql:mean:0,tps:0
+[2021-10-16 14:51:50 pid:10953 tid:700009ae2000  INFO: /Users/fyb/Documents/GitHub/miniob-1/deps/common/metrics/log_reporter.cpp report 35]>>SessionStage.writesocket:mean:0,tps:0
+[2021-10-16 14:52:50 pid:10953 tid:700009b65000  INFO: /Users/fyb/Documents/GitHub/miniob-1/deps/common/metrics/log_reporter.cpp report 35]>>DefaultStorageStage.query:mean:0,tps:0
+[2021-10-16 14:52:50 pid:10953 tid:700009b65000  INFO: /Users/fyb/Documents/GitHub/miniob-1/deps/common/metrics/log_reporter.cpp report 35]>>SessionStage.readsocket:mean:0,tps:0
+[2021-10-16 14:52:50 pid:10953 tid:700009b65000  INFO: /Users/fyb/Documents/GitHub/miniob-1/deps/common/metrics/log_reporter.cpp report 35]>>SessionStage.sql:mean:0,tps:0
+[2021-10-16 14:52:50 pid:10953 tid:700009b65000  INFO: /Users/fyb/Documents/GitHub/miniob-1/deps/common/metrics/log_reporter.cpp report 35]>>SessionStage.writesocket:mean:0,tps:0
+[2021-10-16 14:53:50 pid:10953 tid:700009be8000  INFO: /Users/fyb/Documents/GitHub/miniob-1/deps/common/metrics/log_reporter.cpp report 35]>>DefaultStorageStage.query:mean:0,tps:0
+[2021-10-16 14:53:50 pid:10953 tid:700009be8000  INFO: /Users/fyb/Documents/GitHub/miniob-1/deps/common/metrics/log_reporter.cpp report 35]>>SessionStage.readsocket:mean:0,tps:0
+[2021-10-16 14:53:50 pid:10953 tid:700009be8000  INFO: /Users/fyb/Documents/GitHub/miniob-1/deps/common/metrics/log_reporter.cpp report 35]>>SessionStage.sql:mean:0,tps:0
+[2021-10-16 14:53:50 pid:10953 tid:700009be8000  INFO: /Users/fyb/Documents/GitHub/miniob-1/deps/common/metrics/log_reporter.cpp report 35]>>SessionStage.writesocket:mean:0,tps:0
+[2021-10-16 14:54:50 pid:10953 tid:700009ae2000  INFO: /Users/fyb/Documents/GitHub/miniob-1/deps/common/metrics/log_reporter.cpp report 35]>>DefaultStorageStage.query:mean:0,tps:0
+[2021-10-16 14:54:50 pid:10953 tid:700009ae2000  INFO: /Users/fyb/Documents/GitHub/miniob-1/deps/common/metrics/log_reporter.cpp report 35]>>SessionStage.readsocket:mean:0,tps:0
+[2021-10-16 14:54:50 pid:10953 tid:700009ae2000  INFO: /Users/fyb/Documents/GitHub/miniob-1/deps/common/metrics/log_reporter.cpp report 35]>>SessionStage.sql:mean:0,tps:0
+[2021-10-16 14:54:50 pid:10953 tid:700009ae2000  INFO: /Users/fyb/Documents/GitHub/miniob-1/deps/common/metrics/log_reporter.cpp report 35]>>SessionStage.writesocket:mean:0,tps:0
+[2021-10-16 14:55:50 pid:10953 tid:700009b65000  INFO: /Users/fyb/Documents/GitHub/miniob-1/deps/common/metrics/log_reporter.cpp report 35]>>DefaultStorageStage.query:mean:0,tps:0
+[2021-10-16 14:55:50 pid:10953 tid:700009b65000  INFO: /Users/fyb/Documents/GitHub/miniob-1/deps/common/metrics/log_reporter.cpp report 35]>>SessionStage.readsocket:mean:0,tps:0
+[2021-10-16 14:55:50 pid:10953 tid:700009b65000  INFO: /Users/fyb/Documents/GitHub/miniob-1/deps/common/metrics/log_reporter.cpp report 35]>>SessionStage.sql:mean:0,tps:0
+[2021-10-16 14:55:50 pid:10953 tid:700009b65000  INFO: /Users/fyb/Documents/GitHub/miniob-1/deps/common/metrics/log_reporter.cpp report 35]>>SessionStage.writesocket:mean:0,tps:0
+[2021-10-16 14:56:50 pid:10953 tid:700009be8000  INFO: /Users/fyb/Documents/GitHub/miniob-1/deps/common/metrics/log_reporter.cpp report 35]>>DefaultStorageStage.query:mean:0,tps:0
+[2021-10-16 14:56:50 pid:10953 tid:700009be8000  INFO: /Users/fyb/Documents/GitHub/miniob-1/deps/common/metrics/log_reporter.cpp report 35]>>SessionStage.readsocket:mean:0,tps:0
+[2021-10-16 14:56:50 pid:10953 tid:700009be8000  INFO: /Users/fyb/Documents/GitHub/miniob-1/deps/common/metrics/log_reporter.cpp report 35]>>SessionStage.sql:mean:0,tps:0
+[2021-10-16 14:56:50 pid:10953 tid:700009be8000  INFO: /Users/fyb/Documents/GitHub/miniob-1/deps/common/metrics/log_reporter.cpp report 35]>>SessionStage.writesocket:mean:0,tps:0
+[2021-10-16 14:57:50 pid:10953 tid:700009ae2000  INFO: /Users/fyb/Documents/GitHub/miniob-1/deps/common/metrics/log_reporter.cpp report 35]>>DefaultStorageStage.query:mean:0,tps:0
+[2021-10-16 14:57:50 pid:10953 tid:700009ae2000  INFO: /Users/fyb/Documents/GitHub/miniob-1/deps/common/metrics/log_reporter.cpp report 35]>>SessionStage.readsocket:mean:0,tps:0
+[2021-10-16 14:57:50 pid:10953 tid:700009ae2000  INFO: /Users/fyb/Documents/GitHub/miniob-1/deps/common/metrics/log_reporter.cpp report 35]>>SessionStage.sql:mean:0,tps:0
+[2021-10-16 14:57:50 pid:10953 tid:700009ae2000  INFO: /Users/fyb/Documents/GitHub/miniob-1/deps/common/metrics/log_reporter.cpp report 35]>>SessionStage.writesocket:mean:0,tps:0
+[2021-10-16 14:58:50 pid:10953 tid:700009b65000  INFO: /Users/fyb/Documents/GitHub/miniob-1/deps/common/metrics/log_reporter.cpp report 35]>>DefaultStorageStage.query:mean:0,tps:0
+[2021-10-16 14:58:50 pid:10953 tid:700009b65000  INFO: /Users/fyb/Documents/GitHub/miniob-1/deps/common/metrics/log_reporter.cpp report 35]>>SessionStage.readsocket:mean:0,tps:0
+[2021-10-16 14:58:50 pid:10953 tid:700009b65000  INFO: /Users/fyb/Documents/GitHub/miniob-1/deps/common/metrics/log_reporter.cpp report 35]>>SessionStage.sql:mean:0,tps:0
+[2021-10-16 14:58:50 pid:10953 tid:700009b65000  INFO: /Users/fyb/Documents/GitHub/miniob-1/deps/common/metrics/log_reporter.cpp report 35]>>SessionStage.writesocket:mean:0,tps:0
+[2021-10-16 14:59:50 pid:10953 tid:700009be8000  INFO: /Users/fyb/Documents/GitHub/miniob-1/deps/common/metrics/log_reporter.cpp report 35]>>DefaultStorageStage.query:mean:0,tps:0
+[2021-10-16 14:59:50 pid:10953 tid:700009be8000  INFO: /Users/fyb/Documents/GitHub/miniob-1/deps/common/metrics/log_reporter.cpp report 35]>>SessionStage.readsocket:mean:0,tps:0
+[2021-10-16 14:59:50 pid:10953 tid:700009be8000  INFO: /Users/fyb/Documents/GitHub/miniob-1/deps/common/metrics/log_reporter.cpp report 35]>>SessionStage.sql:mean:0,tps:0
+[2021-10-16 14:59:50 pid:10953 tid:700009be8000  INFO: /Users/fyb/Documents/GitHub/miniob-1/deps/common/metrics/log_reporter.cpp report 35]>>SessionStage.writesocket:mean:0,tps:0
+[2021-10-16 15:0:50 pid:10953 tid:700009ae2000  INFO: /Users/fyb/Documents/GitHub/miniob-1/deps/common/metrics/log_reporter.cpp report 35]>>DefaultStorageStage.query:mean:0,tps:0
+[2021-10-16 15:0:50 pid:10953 tid:700009ae2000  INFO: /Users/fyb/Documents/GitHub/miniob-1/deps/common/metrics/log_reporter.cpp report 35]>>SessionStage.readsocket:mean:0,tps:0
+[2021-10-16 15:0:50 pid:10953 tid:700009ae2000  INFO: /Users/fyb/Documents/GitHub/miniob-1/deps/common/metrics/log_reporter.cpp report 35]>>SessionStage.sql:mean:0,tps:0
+[2021-10-16 15:0:50 pid:10953 tid:700009ae2000  INFO: /Users/fyb/Documents/GitHub/miniob-1/deps/common/metrics/log_reporter.cpp report 35]>>SessionStage.writesocket:mean:0,tps:0
+[2021-10-16 15:1:50 pid:10953 tid:700009b65000  INFO: /Users/fyb/Documents/GitHub/miniob-1/deps/common/metrics/log_reporter.cpp report 35]>>DefaultStorageStage.query:mean:0,tps:0
+[2021-10-16 15:1:50 pid:10953 tid:700009b65000  INFO: /Users/fyb/Documents/GitHub/miniob-1/deps/common/metrics/log_reporter.cpp report 35]>>SessionStage.readsocket:mean:0,tps:0
+[2021-10-16 15:1:50 pid:10953 tid:700009b65000  INFO: /Users/fyb/Documents/GitHub/miniob-1/deps/common/metrics/log_reporter.cpp report 35]>>SessionStage.sql:mean:0,tps:0
+[2021-10-16 15:1:50 pid:10953 tid:700009b65000  INFO: /Users/fyb/Documents/GitHub/miniob-1/deps/common/metrics/log_reporter.cpp report 35]>>SessionStage.writesocket:mean:0,tps:0
+[2021-10-16 15:2:50 pid:10953 tid:700009be8000  INFO: /Users/fyb/Documents/GitHub/miniob-1/deps/common/metrics/log_reporter.cpp report 35]>>DefaultStorageStage.query:mean:0,tps:0
+[2021-10-16 15:2:50 pid:10953 tid:700009be8000  INFO: /Users/fyb/Documents/GitHub/miniob-1/deps/common/metrics/log_reporter.cpp report 35]>>SessionStage.readsocket:mean:0,tps:0
+[2021-10-16 15:2:50 pid:10953 tid:700009be8000  INFO: /Users/fyb/Documents/GitHub/miniob-1/deps/common/metrics/log_reporter.cpp report 35]>>SessionStage.sql:mean:0,tps:0
+[2021-10-16 15:2:50 pid:10953 tid:700009be8000  INFO: /Users/fyb/Documents/GitHub/miniob-1/deps/common/metrics/log_reporter.cpp report 35]>>SessionStage.writesocket:mean:0,tps:0
+[2021-10-16 15:3:50 pid:10953 tid:700009ae2000  INFO: /Users/fyb/Documents/GitHub/miniob-1/deps/common/metrics/log_reporter.cpp report 35]>>DefaultStorageStage.query:mean:0,tps:0
+[2021-10-16 15:3:50 pid:10953 tid:700009ae2000  INFO: /Users/fyb/Documents/GitHub/miniob-1/deps/common/metrics/log_reporter.cpp report 35]>>SessionStage.readsocket:mean:0,tps:0
+[2021-10-16 15:3:50 pid:10953 tid:700009ae2000  INFO: /Users/fyb/Documents/GitHub/miniob-1/deps/common/metrics/log_reporter.cpp report 35]>>SessionStage.sql:mean:0,tps:0
+[2021-10-16 15:3:50 pid:10953 tid:700009ae2000  INFO: /Users/fyb/Documents/GitHub/miniob-1/deps/common/metrics/log_reporter.cpp report 35]>>SessionStage.writesocket:mean:0,tps:0
+[2021-10-16 15:4:50 pid:10953 tid:700009b65000  INFO: /Users/fyb/Documents/GitHub/miniob-1/deps/common/metrics/log_reporter.cpp report 35]>>DefaultStorageStage.query:mean:0,tps:0
+[2021-10-16 15:4:50 pid:10953 tid:700009b65000  INFO: /Users/fyb/Documents/GitHub/miniob-1/deps/common/metrics/log_reporter.cpp report 35]>>SessionStage.readsocket:mean:0,tps:0
+[2021-10-16 15:4:50 pid:10953 tid:700009b65000  INFO: /Users/fyb/Documents/GitHub/miniob-1/deps/common/metrics/log_reporter.cpp report 35]>>SessionStage.sql:mean:0,tps:0
+[2021-10-16 15:4:50 pid:10953 tid:700009b65000  INFO: /Users/fyb/Documents/GitHub/miniob-1/deps/common/metrics/log_reporter.cpp report 35]>>SessionStage.writesocket:mean:0,tps:0
+[2021-10-16 15:5:50 pid:10953 tid:700009be8000  INFO: /Users/fyb/Documents/GitHub/miniob-1/deps/common/metrics/log_reporter.cpp report 35]>>DefaultStorageStage.query:mean:0,tps:0
+[2021-10-16 15:5:50 pid:10953 tid:700009be8000  INFO: /Users/fyb/Documents/GitHub/miniob-1/deps/common/metrics/log_reporter.cpp report 35]>>SessionStage.readsocket:mean:0,tps:0
+[2021-10-16 15:5:50 pid:10953 tid:700009be8000  INFO: /Users/fyb/Documents/GitHub/miniob-1/deps/common/metrics/log_reporter.cpp report 35]>>SessionStage.sql:mean:0,tps:0
+[2021-10-16 15:5:50 pid:10953 tid:700009be8000  INFO: /Users/fyb/Documents/GitHub/miniob-1/deps/common/metrics/log_reporter.cpp report 35]>>SessionStage.writesocket:mean:0,tps:0
+[2021-10-16 15:6:50 pid:10953 tid:700009ae2000  INFO: /Users/fyb/Documents/GitHub/miniob-1/deps/common/metrics/log_reporter.cpp report 35]>>DefaultStorageStage.query:mean:0,tps:0
+[2021-10-16 15:6:50 pid:10953 tid:700009ae2000  INFO: /Users/fyb/Documents/GitHub/miniob-1/deps/common/metrics/log_reporter.cpp report 35]>>SessionStage.readsocket:mean:0,tps:0
+[2021-10-16 15:6:50 pid:10953 tid:700009ae2000  INFO: /Users/fyb/Documents/GitHub/miniob-1/deps/common/metrics/log_reporter.cpp report 35]>>SessionStage.sql:mean:0,tps:0
+[2021-10-16 15:6:50 pid:10953 tid:700009ae2000  INFO: /Users/fyb/Documents/GitHub/miniob-1/deps/common/metrics/log_reporter.cpp report 35]>>SessionStage.writesocket:mean:0,tps:0
+[2021-10-16 15:7:50 pid:10953 tid:700009b65000  INFO: /Users/fyb/Documents/GitHub/miniob-1/deps/common/metrics/log_reporter.cpp report 35]>>DefaultStorageStage.query:mean:0,tps:0
+[2021-10-16 15:7:50 pid:10953 tid:700009b65000  INFO: /Users/fyb/Documents/GitHub/miniob-1/deps/common/metrics/log_reporter.cpp report 35]>>SessionStage.readsocket:mean:0,tps:0
+[2021-10-16 15:7:50 pid:10953 tid:700009b65000  INFO: /Users/fyb/Documents/GitHub/miniob-1/deps/common/metrics/log_reporter.cpp report 35]>>SessionStage.sql:mean:0,tps:0
+[2021-10-16 15:7:50 pid:10953 tid:700009b65000  INFO: /Users/fyb/Documents/GitHub/miniob-1/deps/common/metrics/log_reporter.cpp report 35]>>SessionStage.writesocket:mean:0,tps:0
+[2021-10-16 15:8:50 pid:10953 tid:700009be8000  INFO: /Users/fyb/Documents/GitHub/miniob-1/deps/common/metrics/log_reporter.cpp report 35]>>DefaultStorageStage.query:mean:0,tps:0
+[2021-10-16 15:8:50 pid:10953 tid:700009be8000  INFO: /Users/fyb/Documents/GitHub/miniob-1/deps/common/metrics/log_reporter.cpp report 35]>>SessionStage.readsocket:mean:0,tps:0
+[2021-10-16 15:8:50 pid:10953 tid:700009be8000  INFO: /Users/fyb/Documents/GitHub/miniob-1/deps/common/metrics/log_reporter.cpp report 35]>>SessionStage.sql:mean:0,tps:0
+[2021-10-16 15:8:50 pid:10953 tid:700009be8000  INFO: /Users/fyb/Documents/GitHub/miniob-1/deps/common/metrics/log_reporter.cpp report 35]>>SessionStage.writesocket:mean:0,tps:0
+[2021-10-16 15:9:50 pid:10953 tid:700009ae2000  INFO: /Users/fyb/Documents/GitHub/miniob-1/deps/common/metrics/log_reporter.cpp report 35]>>DefaultStorageStage.query:mean:0,tps:0
+[2021-10-16 15:9:50 pid:10953 tid:700009ae2000  INFO: /Users/fyb/Documents/GitHub/miniob-1/deps/common/metrics/log_reporter.cpp report 35]>>SessionStage.readsocket:mean:0,tps:0
+[2021-10-16 15:9:50 pid:10953 tid:700009ae2000  INFO: /Users/fyb/Documents/GitHub/miniob-1/deps/common/metrics/log_reporter.cpp report 35]>>SessionStage.sql:mean:0,tps:0
+[2021-10-16 15:9:50 pid:10953 tid:700009ae2000  INFO: /Users/fyb/Documents/GitHub/miniob-1/deps/common/metrics/log_reporter.cpp report 35]>>SessionStage.writesocket:mean:0,tps:0
+[2021-10-16 15:10:22 pid:10953 tid:11cf94e00  INFO: /Users/fyb/Documents/GitHub/miniob-1/src/observer/net/server.cpp accept 276]>>Accepted connection from 127.0.0.1:41435
+
+[2021-10-16 15:10:29 pid:10953 tid:11cf94e00  INFO: /Users/fyb/Documents/GitHub/miniob-1/src/observer/net/server.cpp recv 170]>>receive command(size=6): help
+
+[2021-10-16 15:10:31 pid:10953 tid:11cf94e00  INFO: /Users/fyb/Documents/GitHub/miniob-1/src/observer/net/server.cpp recv 170]>>receive command(size=7): help;
+
+[2021-10-16 15:10:50 pid:10953 tid:700009ae2000  INFO: /Users/fyb/Documents/GitHub/miniob-1/deps/common/metrics/log_reporter.cpp report 35]>>DefaultStorageStage.query:mean:0,tps:0
+[2021-10-16 15:10:50 pid:10953 tid:700009ae2000  INFO: /Users/fyb/Documents/GitHub/miniob-1/deps/common/metrics/log_reporter.cpp report 35]>>SessionStage.readsocket:mean:0,tps:0.0333333
+[2021-10-16 15:10:50 pid:10953 tid:700009ae2000  INFO: /Users/fyb/Documents/GitHub/miniob-1/deps/common/metrics/log_reporter.cpp report 35]>>SessionStage.sql:mean:0,tps:0.0333333
+[2021-10-16 15:10:50 pid:10953 tid:700009ae2000  INFO: /Users/fyb/Documents/GitHub/miniob-1/deps/common/metrics/log_reporter.cpp report 35]>>SessionStage.writesocket:mean:0,tps:0.0666667
+[2021-10-16 15:11:50 pid:10953 tid:700009b65000  INFO: /Users/fyb/Documents/GitHub/miniob-1/deps/common/metrics/log_reporter.cpp report 35]>>DefaultStorageStage.query:mean:0,tps:0
+[2021-10-16 15:11:50 pid:10953 tid:700009b65000  INFO: /Users/fyb/Documents/GitHub/miniob-1/deps/common/metrics/log_reporter.cpp report 35]>>SessionStage.readsocket:mean:0,tps:0
+[2021-10-16 15:11:50 pid:10953 tid:700009b65000  INFO: /Users/fyb/Documents/GitHub/miniob-1/deps/common/metrics/log_reporter.cpp report 35]>>SessionStage.sql:mean:0,tps:0
+[2021-10-16 15:11:50 pid:10953 tid:700009b65000  INFO: /Users/fyb/Documents/GitHub/miniob-1/deps/common/metrics/log_reporter.cpp report 35]>>SessionStage.writesocket:mean:0,tps:0
+[2021-10-16 15:12:50 pid:10953 tid:700009be8000  INFO: /Users/fyb/Documents/GitHub/miniob-1/deps/common/metrics/log_reporter.cpp report 35]>>DefaultStorageStage.query:mean:0,tps:0
+[2021-10-16 15:12:50 pid:10953 tid:700009be8000  INFO: /Users/fyb/Documents/GitHub/miniob-1/deps/common/metrics/log_reporter.cpp report 35]>>SessionStage.readsocket:mean:0,tps:0
+[2021-10-16 15:12:50 pid:10953 tid:700009be8000  INFO: /Users/fyb/Documents/GitHub/miniob-1/deps/common/metrics/log_reporter.cpp report 35]>>SessionStage.sql:mean:0,tps:0
+[2021-10-16 15:12:50 pid:10953 tid:700009be8000  INFO: /Users/fyb/Documents/GitHub/miniob-1/deps/common/metrics/log_reporter.cpp report 35]>>SessionStage.writesocket:mean:0,tps:0
+[2021-10-16 15:13:50 pid:10953 tid:700009ae2000  INFO: /Users/fyb/Documents/GitHub/miniob-1/deps/common/metrics/log_reporter.cpp report 35]>>DefaultStorageStage.query:mean:0,tps:0
+[2021-10-16 15:13:50 pid:10953 tid:700009ae2000  INFO: /Users/fyb/Documents/GitHub/miniob-1/deps/common/metrics/log_reporter.cpp report 35]>>SessionStage.readsocket:mean:0,tps:0
+[2021-10-16 15:13:50 pid:10953 tid:700009ae2000  INFO: /Users/fyb/Documents/GitHub/miniob-1/deps/common/metrics/log_reporter.cpp report 35]>>SessionStage.sql:mean:0,tps:0
+[2021-10-16 15:13:50 pid:10953 tid:700009ae2000  INFO: /Users/fyb/Documents/GitHub/miniob-1/deps/common/metrics/log_reporter.cpp report 35]>>SessionStage.writesocket:mean:0,tps:0
+[2021-10-16 15:14:50 pid:10953 tid:700009b65000  INFO: /Users/fyb/Documents/GitHub/miniob-1/deps/common/metrics/log_reporter.cpp report 35]>>DefaultStorageStage.query:mean:0,tps:0
+[2021-10-16 15:14:50 pid:10953 tid:700009b65000  INFO: /Users/fyb/Documents/GitHub/miniob-1/deps/common/metrics/log_reporter.cpp report 35]>>SessionStage.readsocket:mean:0,tps:0
+[2021-10-16 15:14:50 pid:10953 tid:700009b65000  INFO: /Users/fyb/Documents/GitHub/miniob-1/deps/common/metrics/log_reporter.cpp report 35]>>SessionStage.sql:mean:0,tps:0
+[2021-10-16 15:14:50 pid:10953 tid:700009b65000  INFO: /Users/fyb/Documents/GitHub/miniob-1/deps/common/metrics/log_reporter.cpp report 35]>>SessionStage.writesocket:mean:0,tps:0
+[2021-10-16 15:15:50 pid:10953 tid:700009be8000  INFO: /Users/fyb/Documents/GitHub/miniob-1/deps/common/metrics/log_reporter.cpp report 35]>>DefaultStorageStage.query:mean:0,tps:0
+[2021-10-16 15:15:50 pid:10953 tid:700009be8000  INFO: /Users/fyb/Documents/GitHub/miniob-1/deps/common/metrics/log_reporter.cpp report 35]>>SessionStage.readsocket:mean:0,tps:0
+[2021-10-16 15:15:50 pid:10953 tid:700009be8000  INFO: /Users/fyb/Documents/GitHub/miniob-1/deps/common/metrics/log_reporter.cpp report 35]>>SessionStage.sql:mean:0,tps:0
+[2021-10-16 15:15:50 pid:10953 tid:700009be8000  INFO: /Users/fyb/Documents/GitHub/miniob-1/deps/common/metrics/log_reporter.cpp report 35]>>SessionStage.writesocket:mean:0,tps:0
+[2021-10-16 15:16:50 pid:10953 tid:700009ae2000  INFO: /Users/fyb/Documents/GitHub/miniob-1/deps/common/metrics/log_reporter.cpp report 35]>>DefaultStorageStage.query:mean:0,tps:0
+[2021-10-16 15:16:50 pid:10953 tid:700009ae2000  INFO: /Users/fyb/Documents/GitHub/miniob-1/deps/common/metrics/log_reporter.cpp report 35]>>SessionStage.readsocket:mean:0,tps:0
+[2021-10-16 15:16:50 pid:10953 tid:700009ae2000  INFO: /Users/fyb/Documents/GitHub/miniob-1/deps/common/metrics/log_reporter.cpp report 35]>>SessionStage.sql:mean:0,tps:0
+[2021-10-16 15:16:50 pid:10953 tid:700009ae2000  INFO: /Users/fyb/Documents/GitHub/miniob-1/deps/common/metrics/log_reporter.cpp report 35]>>SessionStage.writesocket:mean:0,tps:0
+[2021-10-16 15:17:50 pid:10953 tid:700009b65000  INFO: /Users/fyb/Documents/GitHub/miniob-1/deps/common/metrics/log_reporter.cpp report 35]>>DefaultStorageStage.query:mean:0,tps:0
+[2021-10-16 15:17:50 pid:10953 tid:700009b65000  INFO: /Users/fyb/Documents/GitHub/miniob-1/deps/common/metrics/log_reporter.cpp report 35]>>SessionStage.readsocket:mean:0,tps:0
+[2021-10-16 15:17:50 pid:10953 tid:700009b65000  INFO: /Users/fyb/Documents/GitHub/miniob-1/deps/common/metrics/log_reporter.cpp report 35]>>SessionStage.sql:mean:0,tps:0
+[2021-10-16 15:17:50 pid:10953 tid:700009b65000  INFO: /Users/fyb/Documents/GitHub/miniob-1/deps/common/metrics/log_reporter.cpp report 35]>>SessionStage.writesocket:mean:0,tps:0
+[2021-10-16 15:18:50 pid:10953 tid:700009be8000  INFO: /Users/fyb/Documents/GitHub/miniob-1/deps/common/metrics/log_reporter.cpp report 35]>>DefaultStorageStage.query:mean:0,tps:0
+[2021-10-16 15:18:50 pid:10953 tid:700009be8000  INFO: /Users/fyb/Documents/GitHub/miniob-1/deps/common/metrics/log_reporter.cpp report 35]>>SessionStage.readsocket:mean:0,tps:0
+[2021-10-16 15:18:50 pid:10953 tid:700009be8000  INFO: /Users/fyb/Documents/GitHub/miniob-1/deps/common/metrics/log_reporter.cpp report 35]>>SessionStage.sql:mean:0,tps:0
+[2021-10-16 15:18:50 pid:10953 tid:700009be8000  INFO: /Users/fyb/Documents/GitHub/miniob-1/deps/common/metrics/log_reporter.cpp report 35]>>SessionStage.writesocket:mean:0,tps:0
+[2021-10-16 15:19:50 pid:10953 tid:700009ae2000  INFO: /Users/fyb/Documents/GitHub/miniob-1/deps/common/metrics/log_reporter.cpp report 35]>>DefaultStorageStage.query:mean:0,tps:0
+[2021-10-16 15:19:50 pid:10953 tid:700009ae2000  INFO: /Users/fyb/Documents/GitHub/miniob-1/deps/common/metrics/log_reporter.cpp report 35]>>SessionStage.readsocket:mean:0,tps:0
+[2021-10-16 15:19:50 pid:10953 tid:700009ae2000  INFO: /Users/fyb/Documents/GitHub/miniob-1/deps/common/metrics/log_reporter.cpp report 35]>>SessionStage.sql:mean:0,tps:0
+[2021-10-16 15:19:50 pid:10953 tid:700009ae2000  INFO: /Users/fyb/Documents/GitHub/miniob-1/deps/common/metrics/log_reporter.cpp report 35]>>SessionStage.writesocket:mean:0,tps:0
+[2021-10-16 15:20:50 pid:10953 tid:700009b65000  INFO: /Users/fyb/Documents/GitHub/miniob-1/deps/common/metrics/log_reporter.cpp report 35]>>DefaultStorageStage.query:mean:0,tps:0
+[2021-10-16 15:20:50 pid:10953 tid:700009b65000  INFO: /Users/fyb/Documents/GitHub/miniob-1/deps/common/metrics/log_reporter.cpp report 35]>>SessionStage.readsocket:mean:0,tps:0
+[2021-10-16 15:20:50 pid:10953 tid:700009b65000  INFO: /Users/fyb/Documents/GitHub/miniob-1/deps/common/metrics/log_reporter.cpp report 35]>>SessionStage.sql:mean:0,tps:0
+[2021-10-16 15:20:50 pid:10953 tid:700009b65000  INFO: /Users/fyb/Documents/GitHub/miniob-1/deps/common/metrics/log_reporter.cpp report 35]>>SessionStage.writesocket:mean:0,tps:0
+[2021-10-16 15:21:50 pid:10953 tid:700009be8000  INFO: /Users/fyb/Documents/GitHub/miniob-1/deps/common/metrics/log_reporter.cpp report 35]>>DefaultStorageStage.query:mean:0,tps:0
+[2021-10-16 15:21:50 pid:10953 tid:700009be8000  INFO: /Users/fyb/Documents/GitHub/miniob-1/deps/common/metrics/log_reporter.cpp report 35]>>SessionStage.readsocket:mean:0,tps:0
+[2021-10-16 15:21:50 pid:10953 tid:700009be8000  INFO: /Users/fyb/Documents/GitHub/miniob-1/deps/common/metrics/log_reporter.cpp report 35]>>SessionStage.sql:mean:0,tps:0
+[2021-10-16 15:21:50 pid:10953 tid:700009be8000  INFO: /Users/fyb/Documents/GitHub/miniob-1/deps/common/metrics/log_reporter.cpp report 35]>>SessionStage.writesocket:mean:0,tps:0
+[2021-10-16 15:22:50 pid:10953 tid:700009ae2000  INFO: /Users/fyb/Documents/GitHub/miniob-1/deps/common/metrics/log_reporter.cpp report 35]>>DefaultStorageStage.query:mean:0,tps:0
+[2021-10-16 15:22:50 pid:10953 tid:700009ae2000  INFO: /Users/fyb/Documents/GitHub/miniob-1/deps/common/metrics/log_reporter.cpp report 35]>>SessionStage.readsocket:mean:0,tps:0
+[2021-10-16 15:22:50 pid:10953 tid:700009ae2000  INFO: /Users/fyb/Documents/GitHub/miniob-1/deps/common/metrics/log_reporter.cpp report 35]>>SessionStage.sql:mean:0,tps:0
+[2021-10-16 15:22:50 pid:10953 tid:700009ae2000  INFO: /Users/fyb/Documents/GitHub/miniob-1/deps/common/metrics/log_reporter.cpp report 35]>>SessionStage.writesocket:mean:0,tps:0
+[2021-10-16 15:23:50 pid:10953 tid:700009b65000  INFO: /Users/fyb/Documents/GitHub/miniob-1/deps/common/metrics/log_reporter.cpp report 35]>>DefaultStorageStage.query:mean:0,tps:0
+[2021-10-16 15:23:50 pid:10953 tid:700009b65000  INFO: /Users/fyb/Documents/GitHub/miniob-1/deps/common/metrics/log_reporter.cpp report 35]>>SessionStage.readsocket:mean:0,tps:0
+[2021-10-16 15:23:50 pid:10953 tid:700009b65000  INFO: /Users/fyb/Documents/GitHub/miniob-1/deps/common/metrics/log_reporter.cpp report 35]>>SessionStage.sql:mean:0,tps:0
+[2021-10-16 15:23:50 pid:10953 tid:700009b65000  INFO: /Users/fyb/Documents/GitHub/miniob-1/deps/common/metrics/log_reporter.cpp report 35]>>SessionStage.writesocket:mean:0,tps:0
+[2021-10-16 15:24:50 pid:10953 tid:700009be8000  INFO: /Users/fyb/Documents/GitHub/miniob-1/deps/common/metrics/log_reporter.cpp report 35]>>DefaultStorageStage.query:mean:0,tps:0
+[2021-10-16 15:24:50 pid:10953 tid:700009be8000  INFO: /Users/fyb/Documents/GitHub/miniob-1/deps/common/metrics/log_reporter.cpp report 35]>>SessionStage.readsocket:mean:0,tps:0
+[2021-10-16 15:24:50 pid:10953 tid:700009be8000  INFO: /Users/fyb/Documents/GitHub/miniob-1/deps/common/metrics/log_reporter.cpp report 35]>>SessionStage.sql:mean:0,tps:0
+[2021-10-16 15:24:50 pid:10953 tid:700009be8000  INFO: /Users/fyb/Documents/GitHub/miniob-1/deps/common/metrics/log_reporter.cpp report 35]>>SessionStage.writesocket:mean:0,tps:0
+[2021-10-16 15:25:50 pid:10953 tid:700009ae2000  INFO: /Users/fyb/Documents/GitHub/miniob-1/deps/common/metrics/log_reporter.cpp report 35]>>DefaultStorageStage.query:mean:0,tps:0
+[2021-10-16 15:25:50 pid:10953 tid:700009ae2000  INFO: /Users/fyb/Documents/GitHub/miniob-1/deps/common/metrics/log_reporter.cpp report 35]>>SessionStage.readsocket:mean:0,tps:0
+[2021-10-16 15:25:50 pid:10953 tid:700009ae2000  INFO: /Users/fyb/Documents/GitHub/miniob-1/deps/common/metrics/log_reporter.cpp report 35]>>SessionStage.sql:mean:0,tps:0
+[2021-10-16 15:25:50 pid:10953 tid:700009ae2000  INFO: /Users/fyb/Documents/GitHub/miniob-1/deps/common/metrics/log_reporter.cpp report 35]>>SessionStage.writesocket:mean:0,tps:0
+[2021-10-16 15:26:50 pid:10953 tid:700009b65000  INFO: /Users/fyb/Documents/GitHub/miniob-1/deps/common/metrics/log_reporter.cpp report 35]>>DefaultStorageStage.query:mean:0,tps:0
+[2021-10-16 15:26:50 pid:10953 tid:700009b65000  INFO: /Users/fyb/Documents/GitHub/miniob-1/deps/common/metrics/log_reporter.cpp report 35]>>SessionStage.readsocket:mean:0,tps:0
+[2021-10-16 15:26:50 pid:10953 tid:700009b65000  INFO: /Users/fyb/Documents/GitHub/miniob-1/deps/common/metrics/log_reporter.cpp report 35]>>SessionStage.sql:mean:0,tps:0
+[2021-10-16 15:26:50 pid:10953 tid:700009b65000  INFO: /Users/fyb/Documents/GitHub/miniob-1/deps/common/metrics/log_reporter.cpp report 35]>>SessionStage.writesocket:mean:0,tps:0
+[2021-10-16 15:27:50 pid:10953 tid:700009be8000  INFO: /Users/fyb/Documents/GitHub/miniob-1/deps/common/metrics/log_reporter.cpp report 35]>>DefaultStorageStage.query:mean:0,tps:0
+[2021-10-16 15:27:50 pid:10953 tid:700009be8000  INFO: /Users/fyb/Documents/GitHub/miniob-1/deps/common/metrics/log_reporter.cpp report 35]>>SessionStage.readsocket:mean:0,tps:0
+[2021-10-16 15:27:50 pid:10953 tid:700009be8000  INFO: /Users/fyb/Documents/GitHub/miniob-1/deps/common/metrics/log_reporter.cpp report 35]>>SessionStage.sql:mean:0,tps:0
+[2021-10-16 15:27:50 pid:10953 tid:700009be8000  INFO: /Users/fyb/Documents/GitHub/miniob-1/deps/common/metrics/log_reporter.cpp report 35]>>SessionStage.writesocket:mean:0,tps:0
+[2021-10-16 15:28:50 pid:10953 tid:700009ae2000  INFO: /Users/fyb/Documents/GitHub/miniob-1/deps/common/metrics/log_reporter.cpp report 35]>>DefaultStorageStage.query:mean:0,tps:0
+[2021-10-16 15:28:50 pid:10953 tid:700009ae2000  INFO: /Users/fyb/Documents/GitHub/miniob-1/deps/common/metrics/log_reporter.cpp report 35]>>SessionStage.readsocket:mean:0,tps:0
+[2021-10-16 15:28:50 pid:10953 tid:700009ae2000  INFO: /Users/fyb/Documents/GitHub/miniob-1/deps/common/metrics/log_reporter.cpp report 35]>>SessionStage.sql:mean:0,tps:0
+[2021-10-16 15:28:50 pid:10953 tid:700009ae2000  INFO: /Users/fyb/Documents/GitHub/miniob-1/deps/common/metrics/log_reporter.cpp report 35]>>SessionStage.writesocket:mean:0,tps:0
+[2021-10-16 15:29:50 pid:10953 tid:700009b65000  INFO: /Users/fyb/Documents/GitHub/miniob-1/deps/common/metrics/log_reporter.cpp report 35]>>DefaultStorageStage.query:mean:0,tps:0
+[2021-10-16 15:29:50 pid:10953 tid:700009b65000  INFO: /Users/fyb/Documents/GitHub/miniob-1/deps/common/metrics/log_reporter.cpp report 35]>>SessionStage.readsocket:mean:0,tps:0
+[2021-10-16 15:29:50 pid:10953 tid:700009b65000  INFO: /Users/fyb/Documents/GitHub/miniob-1/deps/common/metrics/log_reporter.cpp report 35]>>SessionStage.sql:mean:0,tps:0
+[2021-10-16 15:29:50 pid:10953 tid:700009b65000  INFO: /Users/fyb/Documents/GitHub/miniob-1/deps/common/metrics/log_reporter.cpp report 35]>>SessionStage.writesocket:mean:0,tps:0
+[2021-10-16 15:30:50 pid:10953 tid:700009be8000  INFO: /Users/fyb/Documents/GitHub/miniob-1/deps/common/metrics/log_reporter.cpp report 35]>>DefaultStorageStage.query:mean:0,tps:0
+[2021-10-16 15:30:50 pid:10953 tid:700009be8000  INFO: /Users/fyb/Documents/GitHub/miniob-1/deps/common/metrics/log_reporter.cpp report 35]>>SessionStage.readsocket:mean:0,tps:0
+[2021-10-16 15:30:50 pid:10953 tid:700009be8000  INFO: /Users/fyb/Documents/GitHub/miniob-1/deps/common/metrics/log_reporter.cpp report 35]>>SessionStage.sql:mean:0,tps:0
+[2021-10-16 15:30:50 pid:10953 tid:700009be8000  INFO: /Users/fyb/Documents/GitHub/miniob-1/deps/common/metrics/log_reporter.cpp report 35]>>SessionStage.writesocket:mean:0,tps:0
+[2021-10-16 15:31:50 pid:10953 tid:700009ae2000  INFO: /Users/fyb/Documents/GitHub/miniob-1/deps/common/metrics/log_reporter.cpp report 35]>>DefaultStorageStage.query:mean:0,tps:0
+[2021-10-16 15:31:50 pid:10953 tid:700009ae2000  INFO: /Users/fyb/Documents/GitHub/miniob-1/deps/common/metrics/log_reporter.cpp report 35]>>SessionStage.readsocket:mean:0,tps:0
+[2021-10-16 15:31:50 pid:10953 tid:700009ae2000  INFO: /Users/fyb/Documents/GitHub/miniob-1/deps/common/metrics/log_reporter.cpp report 35]>>SessionStage.sql:mean:0,tps:0
+[2021-10-16 15:31:50 pid:10953 tid:700009ae2000  INFO: /Users/fyb/Documents/GitHub/miniob-1/deps/common/metrics/log_reporter.cpp report 35]>>SessionStage.writesocket:mean:0,tps:0
+[2021-10-16 15:32:50 pid:10953 tid:700009b65000  INFO: /Users/fyb/Documents/GitHub/miniob-1/deps/common/metrics/log_reporter.cpp report 35]>>DefaultStorageStage.query:mean:0,tps:0
+[2021-10-16 15:32:50 pid:10953 tid:700009b65000  INFO: /Users/fyb/Documents/GitHub/miniob-1/deps/common/metrics/log_reporter.cpp report 35]>>SessionStage.readsocket:mean:0,tps:0
+[2021-10-16 15:32:50 pid:10953 tid:700009b65000  INFO: /Users/fyb/Documents/GitHub/miniob-1/deps/common/metrics/log_reporter.cpp report 35]>>SessionStage.sql:mean:0,tps:0
+[2021-10-16 15:32:50 pid:10953 tid:700009b65000  INFO: /Users/fyb/Documents/GitHub/miniob-1/deps/common/metrics/log_reporter.cpp report 35]>>SessionStage.writesocket:mean:0,tps:0
+[2021-10-16 15:32:52 pid:10953 tid:11cf94e00  INFO: /Users/fyb/Documents/GitHub/miniob-1/src/observer/net/server.cpp recv 170]>>receive command(size=14): show tables;
+
+[2021-10-16 15:33:19 pid:10953 tid:11cf94e00  INFO: /Users/fyb/Documents/GitHub/miniob-1/src/observer/net/server.cpp recv 170]>>receive command(size=35): create table 'test' ('id' 'int');
+
+[2021-10-16 15:33:47 pid:10953 tid:11cf94e00  INFO: /Users/fyb/Documents/GitHub/miniob-1/src/observer/net/server.cpp recv 170]>>receive command(size=4): ls
+
+[2021-10-16 15:33:50 pid:10953 tid:700009be8000  INFO: /Users/fyb/Documents/GitHub/miniob-1/deps/common/metrics/log_reporter.cpp report 35]>>DefaultStorageStage.query:mean:0,tps:0.0166667
+[2021-10-16 15:33:50 pid:10953 tid:700009be8000  INFO: /Users/fyb/Documents/GitHub/miniob-1/deps/common/metrics/log_reporter.cpp report 35]>>SessionStage.readsocket:mean:0,tps:0.05
+[2021-10-16 15:33:50 pid:10953 tid:700009be8000  INFO: /Users/fyb/Documents/GitHub/miniob-1/deps/common/metrics/log_reporter.cpp report 35]>>SessionStage.sql:mean:0,tps:0.05
+[2021-10-16 15:33:50 pid:10953 tid:700009be8000  INFO: /Users/fyb/Documents/GitHub/miniob-1/deps/common/metrics/log_reporter.cpp report 35]>>SessionStage.writesocket:mean:0,tps:0.1
+[2021-10-16 15:34:50 pid:10953 tid:700009ae2000  INFO: /Users/fyb/Documents/GitHub/miniob-1/deps/common/metrics/log_reporter.cpp report 35]>>DefaultStorageStage.query:mean:0,tps:0
+[2021-10-16 15:34:50 pid:10953 tid:700009ae2000  INFO: /Users/fyb/Documents/GitHub/miniob-1/deps/common/metrics/log_reporter.cpp report 35]>>SessionStage.readsocket:mean:0,tps:0
+[2021-10-16 15:34:50 pid:10953 tid:700009ae2000  INFO: /Users/fyb/Documents/GitHub/miniob-1/deps/common/metrics/log_reporter.cpp report 35]>>SessionStage.sql:mean:0,tps:0
+[2021-10-16 15:34:50 pid:10953 tid:700009ae2000  INFO: /Users/fyb/Documents/GitHub/miniob-1/deps/common/metrics/log_reporter.cpp report 35]>>SessionStage.writesocket:mean:0,tps:0
+[2021-10-16 15:35:50 pid:10953 tid:700009b65000  INFO: /Users/fyb/Documents/GitHub/miniob-1/deps/common/metrics/log_reporter.cpp report 35]>>DefaultStorageStage.query:mean:0,tps:0
+[2021-10-16 15:35:50 pid:10953 tid:700009b65000  INFO: /Users/fyb/Documents/GitHub/miniob-1/deps/common/metrics/log_reporter.cpp report 35]>>SessionStage.readsocket:mean:0,tps:0
+[2021-10-16 15:35:50 pid:10953 tid:700009b65000  INFO: /Users/fyb/Documents/GitHub/miniob-1/deps/common/metrics/log_reporter.cpp report 35]>>SessionStage.sql:mean:0,tps:0
+[2021-10-16 15:35:50 pid:10953 tid:700009b65000  INFO: /Users/fyb/Documents/GitHub/miniob-1/deps/common/metrics/log_reporter.cpp report 35]>>SessionStage.writesocket:mean:0,tps:0
+[2021-10-16 15:36:50 pid:10953 tid:700009be8000  INFO: /Users/fyb/Documents/GitHub/miniob-1/deps/common/metrics/log_reporter.cpp report 35]>>DefaultStorageStage.query:mean:0,tps:0
+[2021-10-16 15:36:50 pid:10953 tid:700009be8000  INFO: /Users/fyb/Documents/GitHub/miniob-1/deps/common/metrics/log_reporter.cpp report 35]>>SessionStage.readsocket:mean:0,tps:0
+[2021-10-16 15:36:50 pid:10953 tid:700009be8000  INFO: /Users/fyb/Documents/GitHub/miniob-1/deps/common/metrics/log_reporter.cpp report 35]>>SessionStage.sql:mean:0,tps:0
+[2021-10-16 15:36:50 pid:10953 tid:700009be8000  INFO: /Users/fyb/Documents/GitHub/miniob-1/deps/common/metrics/log_reporter.cpp report 35]>>SessionStage.writesocket:mean:0,tps:0
+[2021-10-16 15:37:50 pid:10953 tid:700009ae2000  INFO: /Users/fyb/Documents/GitHub/miniob-1/deps/common/metrics/log_reporter.cpp report 35]>>DefaultStorageStage.query:mean:0,tps:0
+[2021-10-16 15:37:50 pid:10953 tid:700009ae2000  INFO: /Users/fyb/Documents/GitHub/miniob-1/deps/common/metrics/log_reporter.cpp report 35]>>SessionStage.readsocket:mean:0,tps:0
+[2021-10-16 15:37:50 pid:10953 tid:700009ae2000  INFO: /Users/fyb/Documents/GitHub/miniob-1/deps/common/metrics/log_reporter.cpp report 35]>>SessionStage.sql:mean:0,tps:0
+[2021-10-16 15:37:50 pid:10953 tid:700009ae2000  INFO: /Users/fyb/Documents/GitHub/miniob-1/deps/common/metrics/log_reporter.cpp report 35]>>SessionStage.writesocket:mean:0,tps:0
+[2021-10-16 15:38:50 pid:10953 tid:700009b65000  INFO: /Users/fyb/Documents/GitHub/miniob-1/deps/common/metrics/log_reporter.cpp report 35]>>DefaultStorageStage.query:mean:0,tps:0
+[2021-10-16 15:38:50 pid:10953 tid:700009b65000  INFO: /Users/fyb/Documents/GitHub/miniob-1/deps/common/metrics/log_reporter.cpp report 35]>>SessionStage.readsocket:mean:0,tps:0
+[2021-10-16 15:38:50 pid:10953 tid:700009b65000  INFO: /Users/fyb/Documents/GitHub/miniob-1/deps/common/metrics/log_reporter.cpp report 35]>>SessionStage.sql:mean:0,tps:0
+[2021-10-16 15:38:50 pid:10953 tid:700009b65000  INFO: /Users/fyb/Documents/GitHub/miniob-1/deps/common/metrics/log_reporter.cpp report 35]>>SessionStage.writesocket:mean:0,tps:0
+[2021-10-16 15:39:50 pid:10953 tid:700009be8000  INFO: /Users/fyb/Documents/GitHub/miniob-1/deps/common/metrics/log_reporter.cpp report 35]>>DefaultStorageStage.query:mean:0,tps:0
+[2021-10-16 15:39:50 pid:10953 tid:700009be8000  INFO: /Users/fyb/Documents/GitHub/miniob-1/deps/common/metrics/log_reporter.cpp report 35]>>SessionStage.readsocket:mean:0,tps:0
+[2021-10-16 15:39:50 pid:10953 tid:700009be8000  INFO: /Users/fyb/Documents/GitHub/miniob-1/deps/common/metrics/log_reporter.cpp report 35]>>SessionStage.sql:mean:0,tps:0
+[2021-10-16 15:39:50 pid:10953 tid:700009be8000  INFO: /Users/fyb/Documents/GitHub/miniob-1/deps/common/metrics/log_reporter.cpp report 35]>>SessionStage.writesocket:mean:0,tps:0
+[2021-10-16 15:40:50 pid:10953 tid:700009ae2000  INFO: /Users/fyb/Documents/GitHub/miniob-1/deps/common/metrics/log_reporter.cpp report 35]>>DefaultStorageStage.query:mean:0,tps:0
+[2021-10-16 15:40:50 pid:10953 tid:700009ae2000  INFO: /Users/fyb/Documents/GitHub/miniob-1/deps/common/metrics/log_reporter.cpp report 35]>>SessionStage.readsocket:mean:0,tps:0
+[2021-10-16 15:40:50 pid:10953 tid:700009ae2000  INFO: /Users/fyb/Documents/GitHub/miniob-1/deps/common/metrics/log_reporter.cpp report 35]>>SessionStage.sql:mean:0,tps:0
+[2021-10-16 15:40:50 pid:10953 tid:700009ae2000  INFO: /Users/fyb/Documents/GitHub/miniob-1/deps/common/metrics/log_reporter.cpp report 35]>>SessionStage.writesocket:mean:0,tps:0
+[2021-10-16 15:41:50 pid:10953 tid:700009b65000  INFO: /Users/fyb/Documents/GitHub/miniob-1/deps/common/metrics/log_reporter.cpp report 35]>>DefaultStorageStage.query:mean:0,tps:0
+[2021-10-16 15:41:50 pid:10953 tid:700009b65000  INFO: /Users/fyb/Documents/GitHub/miniob-1/deps/common/metrics/log_reporter.cpp report 35]>>SessionStage.readsocket:mean:0,tps:0
+[2021-10-16 15:41:50 pid:10953 tid:700009b65000  INFO: /Users/fyb/Documents/GitHub/miniob-1/deps/common/metrics/log_reporter.cpp report 35]>>SessionStage.sql:mean:0,tps:0
+[2021-10-16 15:41:50 pid:10953 tid:700009b65000  INFO: /Users/fyb/Documents/GitHub/miniob-1/deps/common/metrics/log_reporter.cpp report 35]>>SessionStage.writesocket:mean:0,tps:0
+[2021-10-16 15:42:50 pid:10953 tid:700009be8000  INFO: /Users/fyb/Documents/GitHub/miniob-1/deps/common/metrics/log_reporter.cpp report 35]>>DefaultStorageStage.query:mean:0,tps:0
+[2021-10-16 15:42:50 pid:10953 tid:700009be8000  INFO: /Users/fyb/Documents/GitHub/miniob-1/deps/common/metrics/log_reporter.cpp report 35]>>SessionStage.readsocket:mean:0,tps:0
+[2021-10-16 15:42:50 pid:10953 tid:700009be8000  INFO: /Users/fyb/Documents/GitHub/miniob-1/deps/common/metrics/log_reporter.cpp report 35]>>SessionStage.sql:mean:0,tps:0
+[2021-10-16 15:42:50 pid:10953 tid:700009be8000  INFO: /Users/fyb/Documents/GitHub/miniob-1/deps/common/metrics/log_reporter.cpp report 35]>>SessionStage.writesocket:mean:0,tps:0
+[2021-10-16 15:43:50 pid:10953 tid:700009ae2000  INFO: /Users/fyb/Documents/GitHub/miniob-1/deps/common/metrics/log_reporter.cpp report 35]>>DefaultStorageStage.query:mean:0,tps:0
+[2021-10-16 15:43:50 pid:10953 tid:700009ae2000  INFO: /Users/fyb/Documents/GitHub/miniob-1/deps/common/metrics/log_reporter.cpp report 35]>>SessionStage.readsocket:mean:0,tps:0
+[2021-10-16 15:43:50 pid:10953 tid:700009ae2000  INFO: /Users/fyb/Documents/GitHub/miniob-1/deps/common/metrics/log_reporter.cpp report 35]>>SessionStage.sql:mean:0,tps:0
+[2021-10-16 15:43:50 pid:10953 tid:700009ae2000  INFO: /Users/fyb/Documents/GitHub/miniob-1/deps/common/metrics/log_reporter.cpp report 35]>>SessionStage.writesocket:mean:0,tps:0
+[2021-10-16 15:44:50 pid:10953 tid:700009b65000  INFO: /Users/fyb/Documents/GitHub/miniob-1/deps/common/metrics/log_reporter.cpp report 35]>>DefaultStorageStage.query:mean:0,tps:0
+[2021-10-16 15:44:50 pid:10953 tid:700009b65000  INFO: /Users/fyb/Documents/GitHub/miniob-1/deps/common/metrics/log_reporter.cpp report 35]>>SessionStage.readsocket:mean:0,tps:0
+[2021-10-16 15:44:50 pid:10953 tid:700009b65000  INFO: /Users/fyb/Documents/GitHub/miniob-1/deps/common/metrics/log_reporter.cpp report 35]>>SessionStage.sql:mean:0,tps:0
+[2021-10-16 15:44:50 pid:10953 tid:700009b65000  INFO: /Users/fyb/Documents/GitHub/miniob-1/deps/common/metrics/log_reporter.cpp report 35]>>SessionStage.writesocket:mean:0,tps:0
+[2021-10-16 15:45:50 pid:10953 tid:700009be8000  INFO: /Users/fyb/Documents/GitHub/miniob-1/deps/common/metrics/log_reporter.cpp report 35]>>DefaultStorageStage.query:mean:0,tps:0
+[2021-10-16 15:45:50 pid:10953 tid:700009be8000  INFO: /Users/fyb/Documents/GitHub/miniob-1/deps/common/metrics/log_reporter.cpp report 35]>>SessionStage.readsocket:mean:0,tps:0
+[2021-10-16 15:45:50 pid:10953 tid:700009be8000  INFO: /Users/fyb/Documents/GitHub/miniob-1/deps/common/metrics/log_reporter.cpp report 35]>>SessionStage.sql:mean:0,tps:0
+[2021-10-16 15:45:50 pid:10953 tid:700009be8000  INFO: /Users/fyb/Documents/GitHub/miniob-1/deps/common/metrics/log_reporter.cpp report 35]>>SessionStage.writesocket:mean:0,tps:0
+[2021-10-16 15:46:50 pid:10953 tid:700009ae2000  INFO: /Users/fyb/Documents/GitHub/miniob-1/deps/common/metrics/log_reporter.cpp report 35]>>DefaultStorageStage.query:mean:0,tps:0
+[2021-10-16 15:46:50 pid:10953 tid:700009ae2000  INFO: /Users/fyb/Documents/GitHub/miniob-1/deps/common/metrics/log_reporter.cpp report 35]>>SessionStage.readsocket:mean:0,tps:0
+[2021-10-16 15:46:50 pid:10953 tid:700009ae2000  INFO: /Users/fyb/Documents/GitHub/miniob-1/deps/common/metrics/log_reporter.cpp report 35]>>SessionStage.sql:mean:0,tps:0
+[2021-10-16 15:46:50 pid:10953 tid:700009ae2000  INFO: /Users/fyb/Documents/GitHub/miniob-1/deps/common/metrics/log_reporter.cpp report 35]>>SessionStage.writesocket:mean:0,tps:0
+[2021-10-16 15:47:50 pid:10953 tid:700009b65000  INFO: /Users/fyb/Documents/GitHub/miniob-1/deps/common/metrics/log_reporter.cpp report 35]>>DefaultStorageStage.query:mean:0,tps:0
+[2021-10-16 15:47:50 pid:10953 tid:700009b65000  INFO: /Users/fyb/Documents/GitHub/miniob-1/deps/common/metrics/log_reporter.cpp report 35]>>SessionStage.readsocket:mean:0,tps:0
+[2021-10-16 15:47:50 pid:10953 tid:700009b65000  INFO: /Users/fyb/Documents/GitHub/miniob-1/deps/common/metrics/log_reporter.cpp report 35]>>SessionStage.sql:mean:0,tps:0
+[2021-10-16 15:47:50 pid:10953 tid:700009b65000  INFO: /Users/fyb/Documents/GitHub/miniob-1/deps/common/metrics/log_reporter.cpp report 35]>>SessionStage.writesocket:mean:0,tps:0
+[2021-10-16 15:48:50 pid:10953 tid:700009be8000  INFO: /Users/fyb/Documents/GitHub/miniob-1/deps/common/metrics/log_reporter.cpp report 35]>>DefaultStorageStage.query:mean:0,tps:0
+[2021-10-16 15:48:50 pid:10953 tid:700009be8000  INFO: /Users/fyb/Documents/GitHub/miniob-1/deps/common/metrics/log_reporter.cpp report 35]>>SessionStage.readsocket:mean:0,tps:0
+[2021-10-16 15:48:50 pid:10953 tid:700009be8000  INFO: /Users/fyb/Documents/GitHub/miniob-1/deps/common/metrics/log_reporter.cpp report 35]>>SessionStage.sql:mean:0,tps:0
+[2021-10-16 15:48:50 pid:10953 tid:700009be8000  INFO: /Users/fyb/Documents/GitHub/miniob-1/deps/common/metrics/log_reporter.cpp report 35]>>SessionStage.writesocket:mean:0,tps:0
+[2021-10-16 15:49:50 pid:10953 tid:700009ae2000  INFO: /Users/fyb/Documents/GitHub/miniob-1/deps/common/metrics/log_reporter.cpp report 35]>>DefaultStorageStage.query:mean:0,tps:0
+[2021-10-16 15:49:50 pid:10953 tid:700009ae2000  INFO: /Users/fyb/Documents/GitHub/miniob-1/deps/common/metrics/log_reporter.cpp report 35]>>SessionStage.readsocket:mean:0,tps:0
+[2021-10-16 15:49:50 pid:10953 tid:700009ae2000  INFO: /Users/fyb/Documents/GitHub/miniob-1/deps/common/metrics/log_reporter.cpp report 35]>>SessionStage.sql:mean:0,tps:0
+[2021-10-16 15:49:50 pid:10953 tid:700009ae2000  INFO: /Users/fyb/Documents/GitHub/miniob-1/deps/common/metrics/log_reporter.cpp report 35]>>SessionStage.writesocket:mean:0,tps:0
+[2021-10-16 15:50:50 pid:10953 tid:700009b65000  INFO: /Users/fyb/Documents/GitHub/miniob-1/deps/common/metrics/log_reporter.cpp report 35]>>DefaultStorageStage.query:mean:0,tps:0
+[2021-10-16 15:50:50 pid:10953 tid:700009b65000  INFO: /Users/fyb/Documents/GitHub/miniob-1/deps/common/metrics/log_reporter.cpp report 35]>>SessionStage.readsocket:mean:0,tps:0
+[2021-10-16 15:50:50 pid:10953 tid:700009b65000  INFO: /Users/fyb/Documents/GitHub/miniob-1/deps/common/metrics/log_reporter.cpp report 35]>>SessionStage.sql:mean:0,tps:0
+[2021-10-16 15:50:50 pid:10953 tid:700009b65000  INFO: /Users/fyb/Documents/GitHub/miniob-1/deps/common/metrics/log_reporter.cpp report 35]>>SessionStage.writesocket:mean:0,tps:0
+[2021-10-16 15:51:50 pid:10953 tid:700009be8000  INFO: /Users/fyb/Documents/GitHub/miniob-1/deps/common/metrics/log_reporter.cpp report 35]>>DefaultStorageStage.query:mean:0,tps:0
+[2021-10-16 15:51:50 pid:10953 tid:700009be8000  INFO: /Users/fyb/Documents/GitHub/miniob-1/deps/common/metrics/log_reporter.cpp report 35]>>SessionStage.readsocket:mean:0,tps:0
+[2021-10-16 15:51:50 pid:10953 tid:700009be8000  INFO: /Users/fyb/Documents/GitHub/miniob-1/deps/common/metrics/log_reporter.cpp report 35]>>SessionStage.sql:mean:0,tps:0
+[2021-10-16 15:51:50 pid:10953 tid:700009be8000  INFO: /Users/fyb/Documents/GitHub/miniob-1/deps/common/metrics/log_reporter.cpp report 35]>>SessionStage.writesocket:mean:0,tps:0
+[2021-10-16 15:52:50 pid:10953 tid:700009ae2000  INFO: /Users/fyb/Documents/GitHub/miniob-1/deps/common/metrics/log_reporter.cpp report 35]>>DefaultStorageStage.query:mean:0,tps:0
+[2021-10-16 15:52:50 pid:10953 tid:700009ae2000  INFO: /Users/fyb/Documents/GitHub/miniob-1/deps/common/metrics/log_reporter.cpp report 35]>>SessionStage.readsocket:mean:0,tps:0
+[2021-10-16 15:52:50 pid:10953 tid:700009ae2000  INFO: /Users/fyb/Documents/GitHub/miniob-1/deps/common/metrics/log_reporter.cpp report 35]>>SessionStage.sql:mean:0,tps:0
+[2021-10-16 15:52:50 pid:10953 tid:700009ae2000  INFO: /Users/fyb/Documents/GitHub/miniob-1/deps/common/metrics/log_reporter.cpp report 35]>>SessionStage.writesocket:mean:0,tps:0
+[2021-10-16 15:53:50 pid:10953 tid:700009b65000  INFO: /Users/fyb/Documents/GitHub/miniob-1/deps/common/metrics/log_reporter.cpp report 35]>>DefaultStorageStage.query:mean:0,tps:0
+[2021-10-16 15:53:50 pid:10953 tid:700009b65000  INFO: /Users/fyb/Documents/GitHub/miniob-1/deps/common/metrics/log_reporter.cpp report 35]>>SessionStage.readsocket:mean:0,tps:0
+[2021-10-16 15:53:50 pid:10953 tid:700009b65000  INFO: /Users/fyb/Documents/GitHub/miniob-1/deps/common/metrics/log_reporter.cpp report 35]>>SessionStage.sql:mean:0,tps:0
+[2021-10-16 15:53:50 pid:10953 tid:700009b65000  INFO: /Users/fyb/Documents/GitHub/miniob-1/deps/common/metrics/log_reporter.cpp report 35]>>SessionStage.writesocket:mean:0,tps:0
+[2021-10-16 15:54:50 pid:10953 tid:700009be8000  INFO: /Users/fyb/Documents/GitHub/miniob-1/deps/common/metrics/log_reporter.cpp report 35]>>DefaultStorageStage.query:mean:0,tps:0
+[2021-10-16 15:54:50 pid:10953 tid:700009be8000  INFO: /Users/fyb/Documents/GitHub/miniob-1/deps/common/metrics/log_reporter.cpp report 35]>>SessionStage.readsocket:mean:0,tps:0
+[2021-10-16 15:54:50 pid:10953 tid:700009be8000  INFO: /Users/fyb/Documents/GitHub/miniob-1/deps/common/metrics/log_reporter.cpp report 35]>>SessionStage.sql:mean:0,tps:0
+[2021-10-16 15:54:50 pid:10953 tid:700009be8000  INFO: /Users/fyb/Documents/GitHub/miniob-1/deps/common/metrics/log_reporter.cpp report 35]>>SessionStage.writesocket:mean:0,tps:0
+[2021-10-16 15:55:50 pid:10953 tid:700009ae2000  INFO: /Users/fyb/Documents/GitHub/miniob-1/deps/common/metrics/log_reporter.cpp report 35]>>DefaultStorageStage.query:mean:0,tps:0
+[2021-10-16 15:55:50 pid:10953 tid:700009ae2000  INFO: /Users/fyb/Documents/GitHub/miniob-1/deps/common/metrics/log_reporter.cpp report 35]>>SessionStage.readsocket:mean:0,tps:0
+[2021-10-16 15:55:50 pid:10953 tid:700009ae2000  INFO: /Users/fyb/Documents/GitHub/miniob-1/deps/common/metrics/log_reporter.cpp report 35]>>SessionStage.sql:mean:0,tps:0
+[2021-10-16 15:55:50 pid:10953 tid:700009ae2000  INFO: /Users/fyb/Documents/GitHub/miniob-1/deps/common/metrics/log_reporter.cpp report 35]>>SessionStage.writesocket:mean:0,tps:0
+[2021-10-16 15:56:50 pid:10953 tid:700009b65000  INFO: /Users/fyb/Documents/GitHub/miniob-1/deps/common/metrics/log_reporter.cpp report 35]>>DefaultStorageStage.query:mean:0,tps:0
+[2021-10-16 15:56:50 pid:10953 tid:700009b65000  INFO: /Users/fyb/Documents/GitHub/miniob-1/deps/common/metrics/log_reporter.cpp report 35]>>SessionStage.readsocket:mean:0,tps:0
+[2021-10-16 15:56:50 pid:10953 tid:700009b65000  INFO: /Users/fyb/Documents/GitHub/miniob-1/deps/common/metrics/log_reporter.cpp report 35]>>SessionStage.sql:mean:0,tps:0
+[2021-10-16 15:56:50 pid:10953 tid:700009b65000  INFO: /Users/fyb/Documents/GitHub/miniob-1/deps/common/metrics/log_reporter.cpp report 35]>>SessionStage.writesocket:mean:0,tps:0
+[2021-10-16 15:57:50 pid:10953 tid:700009be8000  INFO: /Users/fyb/Documents/GitHub/miniob-1/deps/common/metrics/log_reporter.cpp report 35]>>DefaultStorageStage.query:mean:0,tps:0
+[2021-10-16 15:57:50 pid:10953 tid:700009be8000  INFO: /Users/fyb/Documents/GitHub/miniob-1/deps/common/metrics/log_reporter.cpp report 35]>>SessionStage.readsocket:mean:0,tps:0
+[2021-10-16 15:57:50 pid:10953 tid:700009be8000  INFO: /Users/fyb/Documents/GitHub/miniob-1/deps/common/metrics/log_reporter.cpp report 35]>>SessionStage.sql:mean:0,tps:0
+[2021-10-16 15:57:50 pid:10953 tid:700009be8000  INFO: /Users/fyb/Documents/GitHub/miniob-1/deps/common/metrics/log_reporter.cpp report 35]>>SessionStage.writesocket:mean:0,tps:0
+[2021-10-16 15:58:50 pid:10953 tid:700009ae2000  INFO: /Users/fyb/Documents/GitHub/miniob-1/deps/common/metrics/log_reporter.cpp report 35]>>DefaultStorageStage.query:mean:0,tps:0
+[2021-10-16 15:58:50 pid:10953 tid:700009ae2000  INFO: /Users/fyb/Documents/GitHub/miniob-1/deps/common/metrics/log_reporter.cpp report 35]>>SessionStage.readsocket:mean:0,tps:0
+[2021-10-16 15:58:50 pid:10953 tid:700009ae2000  INFO: /Users/fyb/Documents/GitHub/miniob-1/deps/common/metrics/log_reporter.cpp report 35]>>SessionStage.sql:mean:0,tps:0
+[2021-10-16 15:58:50 pid:10953 tid:700009ae2000  INFO: /Users/fyb/Documents/GitHub/miniob-1/deps/common/metrics/log_reporter.cpp report 35]>>SessionStage.writesocket:mean:0,tps:0
+[2021-10-16 15:59:50 pid:10953 tid:700009b65000  INFO: /Users/fyb/Documents/GitHub/miniob-1/deps/common/metrics/log_reporter.cpp report 35]>>DefaultStorageStage.query:mean:0,tps:0
+[2021-10-16 15:59:50 pid:10953 tid:700009b65000  INFO: /Users/fyb/Documents/GitHub/miniob-1/deps/common/metrics/log_reporter.cpp report 35]>>SessionStage.readsocket:mean:0,tps:0
+[2021-10-16 15:59:50 pid:10953 tid:700009b65000  INFO: /Users/fyb/Documents/GitHub/miniob-1/deps/common/metrics/log_reporter.cpp report 35]>>SessionStage.sql:mean:0,tps:0
+[2021-10-16 15:59:50 pid:10953 tid:700009b65000  INFO: /Users/fyb/Documents/GitHub/miniob-1/deps/common/metrics/log_reporter.cpp report 35]>>SessionStage.writesocket:mean:0,tps:0
+[2021-10-16 16:0:50 pid:10953 tid:700009be8000  INFO: /Users/fyb/Documents/GitHub/miniob-1/deps/common/metrics/log_reporter.cpp report 35]>>DefaultStorageStage.query:mean:0,tps:0
+[2021-10-16 16:0:50 pid:10953 tid:700009be8000  INFO: /Users/fyb/Documents/GitHub/miniob-1/deps/common/metrics/log_reporter.cpp report 35]>>SessionStage.readsocket:mean:0,tps:0
+[2021-10-16 16:0:50 pid:10953 tid:700009be8000  INFO: /Users/fyb/Documents/GitHub/miniob-1/deps/common/metrics/log_reporter.cpp report 35]>>SessionStage.sql:mean:0,tps:0
+[2021-10-16 16:0:50 pid:10953 tid:700009be8000  INFO: /Users/fyb/Documents/GitHub/miniob-1/deps/common/metrics/log_reporter.cpp report 35]>>SessionStage.writesocket:mean:0,tps:0
+[2021-10-16 16:1:50 pid:10953 tid:700009ae2000  INFO: /Users/fyb/Documents/GitHub/miniob-1/deps/common/metrics/log_reporter.cpp report 35]>>DefaultStorageStage.query:mean:0,tps:0
+[2021-10-16 16:1:50 pid:10953 tid:700009ae2000  INFO: /Users/fyb/Documents/GitHub/miniob-1/deps/common/metrics/log_reporter.cpp report 35]>>SessionStage.readsocket:mean:0,tps:0
+[2021-10-16 16:1:50 pid:10953 tid:700009ae2000  INFO: /Users/fyb/Documents/GitHub/miniob-1/deps/common/metrics/log_reporter.cpp report 35]>>SessionStage.sql:mean:0,tps:0
+[2021-10-16 16:1:50 pid:10953 tid:700009ae2000  INFO: /Users/fyb/Documents/GitHub/miniob-1/deps/common/metrics/log_reporter.cpp report 35]>>SessionStage.writesocket:mean:0,tps:0
+[2021-10-16 16:2:50 pid:10953 tid:700009b65000  INFO: /Users/fyb/Documents/GitHub/miniob-1/deps/common/metrics/log_reporter.cpp report 35]>>DefaultStorageStage.query:mean:0,tps:0
+[2021-10-16 16:2:50 pid:10953 tid:700009b65000  INFO: /Users/fyb/Documents/GitHub/miniob-1/deps/common/metrics/log_reporter.cpp report 35]>>SessionStage.readsocket:mean:0,tps:0
+[2021-10-16 16:2:50 pid:10953 tid:700009b65000  INFO: /Users/fyb/Documents/GitHub/miniob-1/deps/common/metrics/log_reporter.cpp report 35]>>SessionStage.sql:mean:0,tps:0
+[2021-10-16 16:2:50 pid:10953 tid:700009b65000  INFO: /Users/fyb/Documents/GitHub/miniob-1/deps/common/metrics/log_reporter.cpp report 35]>>SessionStage.writesocket:mean:0,tps:0
+[2021-10-16 16:3:50 pid:10953 tid:700009be8000  INFO: /Users/fyb/Documents/GitHub/miniob-1/deps/common/metrics/log_reporter.cpp report 35]>>DefaultStorageStage.query:mean:0,tps:0
+[2021-10-16 16:3:50 pid:10953 tid:700009be8000  INFO: /Users/fyb/Documents/GitHub/miniob-1/deps/common/metrics/log_reporter.cpp report 35]>>SessionStage.readsocket:mean:0,tps:0
+[2021-10-16 16:3:50 pid:10953 tid:700009be8000  INFO: /Users/fyb/Documents/GitHub/miniob-1/deps/common/metrics/log_reporter.cpp report 35]>>SessionStage.sql:mean:0,tps:0
+[2021-10-16 16:3:50 pid:10953 tid:700009be8000  INFO: /Users/fyb/Documents/GitHub/miniob-1/deps/common/metrics/log_reporter.cpp report 35]>>SessionStage.writesocket:mean:0,tps:0
+[2021-10-16 16:4:50 pid:10953 tid:700009ae2000  INFO: /Users/fyb/Documents/GitHub/miniob-1/deps/common/metrics/log_reporter.cpp report 35]>>DefaultStorageStage.query:mean:0,tps:0
+[2021-10-16 16:4:50 pid:10953 tid:700009ae2000  INFO: /Users/fyb/Documents/GitHub/miniob-1/deps/common/metrics/log_reporter.cpp report 35]>>SessionStage.readsocket:mean:0,tps:0
+[2021-10-16 16:4:50 pid:10953 tid:700009ae2000  INFO: /Users/fyb/Documents/GitHub/miniob-1/deps/common/metrics/log_reporter.cpp report 35]>>SessionStage.sql:mean:0,tps:0
+[2021-10-16 16:4:50 pid:10953 tid:700009ae2000  INFO: /Users/fyb/Documents/GitHub/miniob-1/deps/common/metrics/log_reporter.cpp report 35]>>SessionStage.writesocket:mean:0,tps:0
+[2021-10-16 16:5:50 pid:10953 tid:700009b65000  INFO: /Users/fyb/Documents/GitHub/miniob-1/deps/common/metrics/log_reporter.cpp report 35]>>DefaultStorageStage.query:mean:0,tps:0
+[2021-10-16 16:5:50 pid:10953 tid:700009b65000  INFO: /Users/fyb/Documents/GitHub/miniob-1/deps/common/metrics/log_reporter.cpp report 35]>>SessionStage.readsocket:mean:0,tps:0
+[2021-10-16 16:5:50 pid:10953 tid:700009b65000  INFO: /Users/fyb/Documents/GitHub/miniob-1/deps/common/metrics/log_reporter.cpp report 35]>>SessionStage.sql:mean:0,tps:0
+[2021-10-16 16:5:50 pid:10953 tid:700009b65000  INFO: /Users/fyb/Documents/GitHub/miniob-1/deps/common/metrics/log_reporter.cpp report 35]>>SessionStage.writesocket:mean:0,tps:0
+[2021-10-16 16:6:50 pid:10953 tid:700009be8000  INFO: /Users/fyb/Documents/GitHub/miniob-1/deps/common/metrics/log_reporter.cpp report 35]>>DefaultStorageStage.query:mean:0,tps:0
+[2021-10-16 16:6:50 pid:10953 tid:700009be8000  INFO: /Users/fyb/Documents/GitHub/miniob-1/deps/common/metrics/log_reporter.cpp report 35]>>SessionStage.readsocket:mean:0,tps:0
+[2021-10-16 16:6:50 pid:10953 tid:700009be8000  INFO: /Users/fyb/Documents/GitHub/miniob-1/deps/common/metrics/log_reporter.cpp report 35]>>SessionStage.sql:mean:0,tps:0
+[2021-10-16 16:6:50 pid:10953 tid:700009be8000  INFO: /Users/fyb/Documents/GitHub/miniob-1/deps/common/metrics/log_reporter.cpp report 35]>>SessionStage.writesocket:mean:0,tps:0
+[2021-10-16 16:7:50 pid:10953 tid:700009ae2000  INFO: /Users/fyb/Documents/GitHub/miniob-1/deps/common/metrics/log_reporter.cpp report 35]>>DefaultStorageStage.query:mean:0,tps:0
+[2021-10-16 16:7:50 pid:10953 tid:700009ae2000  INFO: /Users/fyb/Documents/GitHub/miniob-1/deps/common/metrics/log_reporter.cpp report 35]>>SessionStage.readsocket:mean:0,tps:0
+[2021-10-16 16:7:50 pid:10953 tid:700009ae2000  INFO: /Users/fyb/Documents/GitHub/miniob-1/deps/common/metrics/log_reporter.cpp report 35]>>SessionStage.sql:mean:0,tps:0
+[2021-10-16 16:7:50 pid:10953 tid:700009ae2000  INFO: /Users/fyb/Documents/GitHub/miniob-1/deps/common/metrics/log_reporter.cpp report 35]>>SessionStage.writesocket:mean:0,tps:0
+[2021-10-16 16:8:50 pid:10953 tid:700009b65000  INFO: /Users/fyb/Documents/GitHub/miniob-1/deps/common/metrics/log_reporter.cpp report 35]>>DefaultStorageStage.query:mean:0,tps:0
+[2021-10-16 16:8:50 pid:10953 tid:700009b65000  INFO: /Users/fyb/Documents/GitHub/miniob-1/deps/common/metrics/log_reporter.cpp report 35]>>SessionStage.readsocket:mean:0,tps:0
+[2021-10-16 16:8:50 pid:10953 tid:700009b65000  INFO: /Users/fyb/Documents/GitHub/miniob-1/deps/common/metrics/log_reporter.cpp report 35]>>SessionStage.sql:mean:0,tps:0
+[2021-10-16 16:8:50 pid:10953 tid:700009b65000  INFO: /Users/fyb/Documents/GitHub/miniob-1/deps/common/metrics/log_reporter.cpp report 35]>>SessionStage.writesocket:mean:0,tps:0
+[2021-10-16 16:9:50 pid:10953 tid:700009be8000  INFO: /Users/fyb/Documents/GitHub/miniob-1/deps/common/metrics/log_reporter.cpp report 35]>>DefaultStorageStage.query:mean:0,tps:0
+[2021-10-16 16:9:50 pid:10953 tid:700009be8000  INFO: /Users/fyb/Documents/GitHub/miniob-1/deps/common/metrics/log_reporter.cpp report 35]>>SessionStage.readsocket:mean:0,tps:0
+[2021-10-16 16:9:50 pid:10953 tid:700009be8000  INFO: /Users/fyb/Documents/GitHub/miniob-1/deps/common/metrics/log_reporter.cpp report 35]>>SessionStage.sql:mean:0,tps:0
+[2021-10-16 16:9:50 pid:10953 tid:700009be8000  INFO: /Users/fyb/Documents/GitHub/miniob-1/deps/common/metrics/log_reporter.cpp report 35]>>SessionStage.writesocket:mean:0,tps:0
+[2021-10-16 16:10:50 pid:10953 tid:700009ae2000  INFO: /Users/fyb/Documents/GitHub/miniob-1/deps/common/metrics/log_reporter.cpp report 35]>>DefaultStorageStage.query:mean:0,tps:0
+[2021-10-16 16:10:50 pid:10953 tid:700009ae2000  INFO: /Users/fyb/Documents/GitHub/miniob-1/deps/common/metrics/log_reporter.cpp report 35]>>SessionStage.readsocket:mean:0,tps:0
+[2021-10-16 16:10:50 pid:10953 tid:700009ae2000  INFO: /Users/fyb/Documents/GitHub/miniob-1/deps/common/metrics/log_reporter.cpp report 35]>>SessionStage.sql:mean:0,tps:0
+[2021-10-16 16:10:50 pid:10953 tid:700009ae2000  INFO: /Users/fyb/Documents/GitHub/miniob-1/deps/common/metrics/log_reporter.cpp report 35]>>SessionStage.writesocket:mean:0,tps:0
+[2021-10-16 16:11:50 pid:10953 tid:700009b65000  INFO: /Users/fyb/Documents/GitHub/miniob-1/deps/common/metrics/log_reporter.cpp report 35]>>DefaultStorageStage.query:mean:0,tps:0
+[2021-10-16 16:11:50 pid:10953 tid:700009b65000  INFO: /Users/fyb/Documents/GitHub/miniob-1/deps/common/metrics/log_reporter.cpp report 35]>>SessionStage.readsocket:mean:0,tps:0
+[2021-10-16 16:11:50 pid:10953 tid:700009b65000  INFO: /Users/fyb/Documents/GitHub/miniob-1/deps/common/metrics/log_reporter.cpp report 35]>>SessionStage.sql:mean:0,tps:0
+[2021-10-16 16:11:50 pid:10953 tid:700009b65000  INFO: /Users/fyb/Documents/GitHub/miniob-1/deps/common/metrics/log_reporter.cpp report 35]>>SessionStage.writesocket:mean:0,tps:0
+[2021-10-16 16:12:50 pid:10953 tid:700009be8000  INFO: /Users/fyb/Documents/GitHub/miniob-1/deps/common/metrics/log_reporter.cpp report 35]>>DefaultStorageStage.query:mean:0,tps:0
+[2021-10-16 16:12:50 pid:10953 tid:700009be8000  INFO: /Users/fyb/Documents/GitHub/miniob-1/deps/common/metrics/log_reporter.cpp report 35]>>SessionStage.readsocket:mean:0,tps:0
+[2021-10-16 16:12:50 pid:10953 tid:700009be8000  INFO: /Users/fyb/Documents/GitHub/miniob-1/deps/common/metrics/log_reporter.cpp report 35]>>SessionStage.sql:mean:0,tps:0
+[2021-10-16 16:12:50 pid:10953 tid:700009be8000  INFO: /Users/fyb/Documents/GitHub/miniob-1/deps/common/metrics/log_reporter.cpp report 35]>>SessionStage.writesocket:mean:0,tps:0
+[2021-10-16 16:13:50 pid:10953 tid:700009ae2000  INFO: /Users/fyb/Documents/GitHub/miniob-1/deps/common/metrics/log_reporter.cpp report 35]>>DefaultStorageStage.query:mean:0,tps:0
+[2021-10-16 16:13:50 pid:10953 tid:700009ae2000  INFO: /Users/fyb/Documents/GitHub/miniob-1/deps/common/metrics/log_reporter.cpp report 35]>>SessionStage.readsocket:mean:0,tps:0
+[2021-10-16 16:13:50 pid:10953 tid:700009ae2000  INFO: /Users/fyb/Documents/GitHub/miniob-1/deps/common/metrics/log_reporter.cpp report 35]>>SessionStage.sql:mean:0,tps:0
+[2021-10-16 16:13:50 pid:10953 tid:700009ae2000  INFO: /Users/fyb/Documents/GitHub/miniob-1/deps/common/metrics/log_reporter.cpp report 35]>>SessionStage.writesocket:mean:0,tps:0
+[2021-10-16 16:14:50 pid:10953 tid:700009b65000  INFO: /Users/fyb/Documents/GitHub/miniob-1/deps/common/metrics/log_reporter.cpp report 35]>>DefaultStorageStage.query:mean:0,tps:0
+[2021-10-16 16:14:50 pid:10953 tid:700009b65000  INFO: /Users/fyb/Documents/GitHub/miniob-1/deps/common/metrics/log_reporter.cpp report 35]>>SessionStage.readsocket:mean:0,tps:0
+[2021-10-16 16:14:50 pid:10953 tid:700009b65000  INFO: /Users/fyb/Documents/GitHub/miniob-1/deps/common/metrics/log_reporter.cpp report 35]>>SessionStage.sql:mean:0,tps:0
+[2021-10-16 16:14:50 pid:10953 tid:700009b65000  INFO: /Users/fyb/Documents/GitHub/miniob-1/deps/common/metrics/log_reporter.cpp report 35]>>SessionStage.writesocket:mean:0,tps:0
+[2021-10-16 16:15:50 pid:10953 tid:700009be8000  INFO: /Users/fyb/Documents/GitHub/miniob-1/deps/common/metrics/log_reporter.cpp report 35]>>DefaultStorageStage.query:mean:0,tps:0
+[2021-10-16 16:15:50 pid:10953 tid:700009be8000  INFO: /Users/fyb/Documents/GitHub/miniob-1/deps/common/metrics/log_reporter.cpp report 35]>>SessionStage.readsocket:mean:0,tps:0
+[2021-10-16 16:15:50 pid:10953 tid:700009be8000  INFO: /Users/fyb/Documents/GitHub/miniob-1/deps/common/metrics/log_reporter.cpp report 35]>>SessionStage.sql:mean:0,tps:0
+[2021-10-16 16:15:50 pid:10953 tid:700009be8000  INFO: /Users/fyb/Documents/GitHub/miniob-1/deps/common/metrics/log_reporter.cpp report 35]>>SessionStage.writesocket:mean:0,tps:0
+[2021-10-16 16:16:50 pid:10953 tid:700009ae2000  INFO: /Users/fyb/Documents/GitHub/miniob-1/deps/common/metrics/log_reporter.cpp report 35]>>DefaultStorageStage.query:mean:0,tps:0
+[2021-10-16 16:16:50 pid:10953 tid:700009ae2000  INFO: /Users/fyb/Documents/GitHub/miniob-1/deps/common/metrics/log_reporter.cpp report 35]>>SessionStage.readsocket:mean:0,tps:0
+[2021-10-16 16:16:50 pid:10953 tid:700009ae2000  INFO: /Users/fyb/Documents/GitHub/miniob-1/deps/common/metrics/log_reporter.cpp report 35]>>SessionStage.sql:mean:0,tps:0
+[2021-10-16 16:16:50 pid:10953 tid:700009ae2000  INFO: /Users/fyb/Documents/GitHub/miniob-1/deps/common/metrics/log_reporter.cpp report 35]>>SessionStage.writesocket:mean:0,tps:0
+[2021-10-16 16:17:50 pid:10953 tid:700009b65000  INFO: /Users/fyb/Documents/GitHub/miniob-1/deps/common/metrics/log_reporter.cpp report 35]>>DefaultStorageStage.query:mean:0,tps:0
+[2021-10-16 16:17:50 pid:10953 tid:700009b65000  INFO: /Users/fyb/Documents/GitHub/miniob-1/deps/common/metrics/log_reporter.cpp report 35]>>SessionStage.readsocket:mean:0,tps:0
+[2021-10-16 16:17:50 pid:10953 tid:700009b65000  INFO: /Users/fyb/Documents/GitHub/miniob-1/deps/common/metrics/log_reporter.cpp report 35]>>SessionStage.sql:mean:0,tps:0
+[2021-10-16 16:17:50 pid:10953 tid:700009b65000  INFO: /Users/fyb/Documents/GitHub/miniob-1/deps/common/metrics/log_reporter.cpp report 35]>>SessionStage.writesocket:mean:0,tps:0
+[2021-10-16 16:18:50 pid:10953 tid:700009be8000  INFO: /Users/fyb/Documents/GitHub/miniob-1/deps/common/metrics/log_reporter.cpp report 35]>>DefaultStorageStage.query:mean:0,tps:0
+[2021-10-16 16:18:50 pid:10953 tid:700009be8000  INFO: /Users/fyb/Documents/GitHub/miniob-1/deps/common/metrics/log_reporter.cpp report 35]>>SessionStage.readsocket:mean:0,tps:0
+[2021-10-16 16:18:50 pid:10953 tid:700009be8000  INFO: /Users/fyb/Documents/GitHub/miniob-1/deps/common/metrics/log_reporter.cpp report 35]>>SessionStage.sql:mean:0,tps:0
+[2021-10-16 16:18:50 pid:10953 tid:700009be8000  INFO: /Users/fyb/Documents/GitHub/miniob-1/deps/common/metrics/log_reporter.cpp report 35]>>SessionStage.writesocket:mean:0,tps:0
+[2021-10-16 16:19:50 pid:10953 tid:700009ae2000  INFO: /Users/fyb/Documents/GitHub/miniob-1/deps/common/metrics/log_reporter.cpp report 35]>>DefaultStorageStage.query:mean:0,tps:0
+[2021-10-16 16:19:50 pid:10953 tid:700009ae2000  INFO: /Users/fyb/Documents/GitHub/miniob-1/deps/common/metrics/log_reporter.cpp report 35]>>SessionStage.readsocket:mean:0,tps:0
+[2021-10-16 16:19:50 pid:10953 tid:700009ae2000  INFO: /Users/fyb/Documents/GitHub/miniob-1/deps/common/metrics/log_reporter.cpp report 35]>>SessionStage.sql:mean:0,tps:0
+[2021-10-16 16:19:50 pid:10953 tid:700009ae2000  INFO: /Users/fyb/Documents/GitHub/miniob-1/deps/common/metrics/log_reporter.cpp report 35]>>SessionStage.writesocket:mean:0,tps:0
+[2021-10-16 16:20:50 pid:10953 tid:700009b65000  INFO: /Users/fyb/Documents/GitHub/miniob-1/deps/common/metrics/log_reporter.cpp report 35]>>DefaultStorageStage.query:mean:0,tps:0
+[2021-10-16 16:20:50 pid:10953 tid:700009b65000  INFO: /Users/fyb/Documents/GitHub/miniob-1/deps/common/metrics/log_reporter.cpp report 35]>>SessionStage.readsocket:mean:0,tps:0
+[2021-10-16 16:20:50 pid:10953 tid:700009b65000  INFO: /Users/fyb/Documents/GitHub/miniob-1/deps/common/metrics/log_reporter.cpp report 35]>>SessionStage.sql:mean:0,tps:0
+[2021-10-16 16:20:50 pid:10953 tid:700009b65000  INFO: /Users/fyb/Documents/GitHub/miniob-1/deps/common/metrics/log_reporter.cpp report 35]>>SessionStage.writesocket:mean:0,tps:0
+[2021-10-16 16:21:50 pid:10953 tid:700009be8000  INFO: /Users/fyb/Documents/GitHub/miniob-1/deps/common/metrics/log_reporter.cpp report 35]>>DefaultStorageStage.query:mean:0,tps:0
+[2021-10-16 16:21:50 pid:10953 tid:700009be8000  INFO: /Users/fyb/Documents/GitHub/miniob-1/deps/common/metrics/log_reporter.cpp report 35]>>SessionStage.readsocket:mean:0,tps:0
+[2021-10-16 16:21:50 pid:10953 tid:700009be8000  INFO: /Users/fyb/Documents/GitHub/miniob-1/deps/common/metrics/log_reporter.cpp report 35]>>SessionStage.sql:mean:0,tps:0
+[2021-10-16 16:21:50 pid:10953 tid:700009be8000  INFO: /Users/fyb/Documents/GitHub/miniob-1/deps/common/metrics/log_reporter.cpp report 35]>>SessionStage.writesocket:mean:0,tps:0
+[2021-10-16 16:22:50 pid:10953 tid:700009ae2000  INFO: /Users/fyb/Documents/GitHub/miniob-1/deps/common/metrics/log_reporter.cpp report 35]>>DefaultStorageStage.query:mean:0,tps:0
+[2021-10-16 16:22:50 pid:10953 tid:700009ae2000  INFO: /Users/fyb/Documents/GitHub/miniob-1/deps/common/metrics/log_reporter.cpp report 35]>>SessionStage.readsocket:mean:0,tps:0
+[2021-10-16 16:22:50 pid:10953 tid:700009ae2000  INFO: /Users/fyb/Documents/GitHub/miniob-1/deps/common/metrics/log_reporter.cpp report 35]>>SessionStage.sql:mean:0,tps:0
+[2021-10-16 16:22:50 pid:10953 tid:700009ae2000  INFO: /Users/fyb/Documents/GitHub/miniob-1/deps/common/metrics/log_reporter.cpp report 35]>>SessionStage.writesocket:mean:0,tps:0
+[2021-10-16 16:23:50 pid:10953 tid:700009b65000  INFO: /Users/fyb/Documents/GitHub/miniob-1/deps/common/metrics/log_reporter.cpp report 35]>>DefaultStorageStage.query:mean:0,tps:0
+[2021-10-16 16:23:50 pid:10953 tid:700009b65000  INFO: /Users/fyb/Documents/GitHub/miniob-1/deps/common/metrics/log_reporter.cpp report 35]>>SessionStage.readsocket:mean:0,tps:0
+[2021-10-16 16:23:50 pid:10953 tid:700009b65000  INFO: /Users/fyb/Documents/GitHub/miniob-1/deps/common/metrics/log_reporter.cpp report 35]>>SessionStage.sql:mean:0,tps:0
+[2021-10-16 16:23:50 pid:10953 tid:700009b65000  INFO: /Users/fyb/Documents/GitHub/miniob-1/deps/common/metrics/log_reporter.cpp report 35]>>SessionStage.writesocket:mean:0,tps:0
+[2021-10-16 16:24:50 pid:10953 tid:700009be8000  INFO: /Users/fyb/Documents/GitHub/miniob-1/deps/common/metrics/log_reporter.cpp report 35]>>DefaultStorageStage.query:mean:0,tps:0
+[2021-10-16 16:24:50 pid:10953 tid:700009be8000  INFO: /Users/fyb/Documents/GitHub/miniob-1/deps/common/metrics/log_reporter.cpp report 35]>>SessionStage.readsocket:mean:0,tps:0
+[2021-10-16 16:24:50 pid:10953 tid:700009be8000  INFO: /Users/fyb/Documents/GitHub/miniob-1/deps/common/metrics/log_reporter.cpp report 35]>>SessionStage.sql:mean:0,tps:0
+[2021-10-16 16:24:50 pid:10953 tid:700009be8000  INFO: /Users/fyb/Documents/GitHub/miniob-1/deps/common/metrics/log_reporter.cpp report 35]>>SessionStage.writesocket:mean:0,tps:0
+[2021-10-16 16:25:50 pid:10953 tid:700009ae2000  INFO: /Users/fyb/Documents/GitHub/miniob-1/deps/common/metrics/log_reporter.cpp report 35]>>DefaultStorageStage.query:mean:0,tps:0
+[2021-10-16 16:25:50 pid:10953 tid:700009ae2000  INFO: /Users/fyb/Documents/GitHub/miniob-1/deps/common/metrics/log_reporter.cpp report 35]>>SessionStage.readsocket:mean:0,tps:0
+[2021-10-16 16:25:50 pid:10953 tid:700009ae2000  INFO: /Users/fyb/Documents/GitHub/miniob-1/deps/common/metrics/log_reporter.cpp report 35]>>SessionStage.sql:mean:0,tps:0
+[2021-10-16 16:25:50 pid:10953 tid:700009ae2000  INFO: /Users/fyb/Documents/GitHub/miniob-1/deps/common/metrics/log_reporter.cpp report 35]>>SessionStage.writesocket:mean:0,tps:0
+[2021-10-16 16:26:50 pid:10953 tid:700009b65000  INFO: /Users/fyb/Documents/GitHub/miniob-1/deps/common/metrics/log_reporter.cpp report 35]>>DefaultStorageStage.query:mean:0,tps:0
+[2021-10-16 16:26:50 pid:10953 tid:700009b65000  INFO: /Users/fyb/Documents/GitHub/miniob-1/deps/common/metrics/log_reporter.cpp report 35]>>SessionStage.readsocket:mean:0,tps:0
+[2021-10-16 16:26:50 pid:10953 tid:700009b65000  INFO: /Users/fyb/Documents/GitHub/miniob-1/deps/common/metrics/log_reporter.cpp report 35]>>SessionStage.sql:mean:0,tps:0
+[2021-10-16 16:26:50 pid:10953 tid:700009b65000  INFO: /Users/fyb/Documents/GitHub/miniob-1/deps/common/metrics/log_reporter.cpp report 35]>>SessionStage.writesocket:mean:0,tps:0
+[2021-10-16 16:27:50 pid:10953 tid:700009be8000  INFO: /Users/fyb/Documents/GitHub/miniob-1/deps/common/metrics/log_reporter.cpp report 35]>>DefaultStorageStage.query:mean:0,tps:0
+[2021-10-16 16:27:50 pid:10953 tid:700009be8000  INFO: /Users/fyb/Documents/GitHub/miniob-1/deps/common/metrics/log_reporter.cpp report 35]>>SessionStage.readsocket:mean:0,tps:0
+[2021-10-16 16:27:50 pid:10953 tid:700009be8000  INFO: /Users/fyb/Documents/GitHub/miniob-1/deps/common/metrics/log_reporter.cpp report 35]>>SessionStage.sql:mean:0,tps:0
+[2021-10-16 16:27:50 pid:10953 tid:700009be8000  INFO: /Users/fyb/Documents/GitHub/miniob-1/deps/common/metrics/log_reporter.cpp report 35]>>SessionStage.writesocket:mean:0,tps:0
+[2021-10-16 16:28:50 pid:10953 tid:700009ae2000  INFO: /Users/fyb/Documents/GitHub/miniob-1/deps/common/metrics/log_reporter.cpp report 35]>>DefaultStorageStage.query:mean:0,tps:0
+[2021-10-16 16:28:50 pid:10953 tid:700009ae2000  INFO: /Users/fyb/Documents/GitHub/miniob-1/deps/common/metrics/log_reporter.cpp report 35]>>SessionStage.readsocket:mean:0,tps:0
+[2021-10-16 16:28:50 pid:10953 tid:700009ae2000  INFO: /Users/fyb/Documents/GitHub/miniob-1/deps/common/metrics/log_reporter.cpp report 35]>>SessionStage.sql:mean:0,tps:0
+[2021-10-16 16:28:50 pid:10953 tid:700009ae2000  INFO: /Users/fyb/Documents/GitHub/miniob-1/deps/common/metrics/log_reporter.cpp report 35]>>SessionStage.writesocket:mean:0,tps:0
+[2021-10-16 16:29:50 pid:10953 tid:700009b65000  INFO: /Users/fyb/Documents/GitHub/miniob-1/deps/common/metrics/log_reporter.cpp report 35]>>DefaultStorageStage.query:mean:0,tps:0
+[2021-10-16 16:29:50 pid:10953 tid:700009b65000  INFO: /Users/fyb/Documents/GitHub/miniob-1/deps/common/metrics/log_reporter.cpp report 35]>>SessionStage.readsocket:mean:0,tps:0
+[2021-10-16 16:29:50 pid:10953 tid:700009b65000  INFO: /Users/fyb/Documents/GitHub/miniob-1/deps/common/metrics/log_reporter.cpp report 35]>>SessionStage.sql:mean:0,tps:0
+[2021-10-16 16:29:50 pid:10953 tid:700009b65000  INFO: /Users/fyb/Documents/GitHub/miniob-1/deps/common/metrics/log_reporter.cpp report 35]>>SessionStage.writesocket:mean:0,tps:0
+[2021-10-16 16:45:24 pid:10953 tid:700009be8000  INFO: /Users/fyb/Documents/GitHub/miniob-1/deps/common/metrics/log_reporter.cpp report 35]>>DefaultStorageStage.query:mean:0,tps:0
+[2021-10-16 16:45:25 pid:10953 tid:700009be8000  INFO: /Users/fyb/Documents/GitHub/miniob-1/deps/common/metrics/log_reporter.cpp report 35]>>SessionStage.readsocket:mean:0,tps:0
+[2021-10-16 16:45:25 pid:10953 tid:700009be8000  INFO: /Users/fyb/Documents/GitHub/miniob-1/deps/common/metrics/log_reporter.cpp report 35]>>SessionStage.sql:mean:0,tps:0
+[2021-10-16 16:45:25 pid:10953 tid:700009be8000  INFO: /Users/fyb/Documents/GitHub/miniob-1/deps/common/metrics/log_reporter.cpp report 35]>>SessionStage.writesocket:mean:0,tps:0
+[2021-10-16 16:47:0 pid:10953 tid:700009ae2000  INFO: /Users/fyb/Documents/GitHub/miniob-1/deps/common/metrics/log_reporter.cpp report 35]>>DefaultStorageStage.query:mean:0,tps:0
+[2021-10-16 16:47:1 pid:10953 tid:700009ae2000  INFO: /Users/fyb/Documents/GitHub/miniob-1/deps/common/metrics/log_reporter.cpp report 35]>>SessionStage.readsocket:mean:0,tps:0
+[2021-10-16 16:47:1 pid:10953 tid:700009ae2000  INFO: /Users/fyb/Documents/GitHub/miniob-1/deps/common/metrics/log_reporter.cpp report 35]>>SessionStage.sql:mean:0,tps:0
+[2021-10-16 16:47:1 pid:10953 tid:700009ae2000  INFO: /Users/fyb/Documents/GitHub/miniob-1/deps/common/metrics/log_reporter.cpp report 35]>>SessionStage.writesocket:mean:0,tps:0
+[2021-10-16 16:48:38 pid:10953 tid:700009b65000  INFO: /Users/fyb/Documents/GitHub/miniob-1/deps/common/metrics/log_reporter.cpp report 35]>>DefaultStorageStage.query:mean:0,tps:0
+[2021-10-16 16:48:38 pid:10953 tid:700009b65000  INFO: /Users/fyb/Documents/GitHub/miniob-1/deps/common/metrics/log_reporter.cpp report 35]>>SessionStage.readsocket:mean:0,tps:0
+[2021-10-16 16:48:38 pid:10953 tid:700009b65000  INFO: /Users/fyb/Documents/GitHub/miniob-1/deps/common/metrics/log_reporter.cpp report 35]>>SessionStage.sql:mean:0,tps:0
+[2021-10-16 16:48:38 pid:10953 tid:700009b65000  INFO: /Users/fyb/Documents/GitHub/miniob-1/deps/common/metrics/log_reporter.cpp report 35]>>SessionStage.writesocket:mean:0,tps:0
+[2021-10-16 16:49:39 pid:10953 tid:700009be8000  INFO: /Users/fyb/Documents/GitHub/miniob-1/deps/common/metrics/log_reporter.cpp report 35]>>DefaultStorageStage.query:mean:0,tps:0
+[2021-10-16 16:49:39 pid:10953 tid:700009be8000  INFO: /Users/fyb/Documents/GitHub/miniob-1/deps/common/metrics/log_reporter.cpp report 35]>>SessionStage.readsocket:mean:0,tps:0
+[2021-10-16 16:49:39 pid:10953 tid:700009be8000  INFO: /Users/fyb/Documents/GitHub/miniob-1/deps/common/metrics/log_reporter.cpp report 35]>>SessionStage.sql:mean:0,tps:0
+[2021-10-16 16:49:39 pid:10953 tid:700009be8000  INFO: /Users/fyb/Documents/GitHub/miniob-1/deps/common/metrics/log_reporter.cpp report 35]>>SessionStage.writesocket:mean:0,tps:0
+[2021-10-16 17:5:14 pid:10953 tid:700009ae2000  INFO: /Users/fyb/Documents/GitHub/miniob-1/deps/common/metrics/log_reporter.cpp report 35]>>DefaultStorageStage.query:mean:0,tps:0
+[2021-10-16 17:5:15 pid:10953 tid:700009ae2000  INFO: /Users/fyb/Documents/GitHub/miniob-1/deps/common/metrics/log_reporter.cpp report 35]>>SessionStage.readsocket:mean:0,tps:0
+[2021-10-16 17:5:15 pid:10953 tid:700009ae2000  INFO: /Users/fyb/Documents/GitHub/miniob-1/deps/common/metrics/log_reporter.cpp report 35]>>SessionStage.sql:mean:0,tps:0
+[2021-10-16 17:5:15 pid:10953 tid:700009ae2000  INFO: /Users/fyb/Documents/GitHub/miniob-1/deps/common/metrics/log_reporter.cpp report 35]>>SessionStage.writesocket:mean:0,tps:0
+[2021-10-16 17:6:15 pid:10953 tid:700009b65000  INFO: /Users/fyb/Documents/GitHub/miniob-1/deps/common/metrics/log_reporter.cpp report 35]>>DefaultStorageStage.query:mean:0,tps:0
+[2021-10-16 17:6:15 pid:10953 tid:700009b65000  INFO: /Users/fyb/Documents/GitHub/miniob-1/deps/common/metrics/log_reporter.cpp report 35]>>SessionStage.readsocket:mean:0,tps:0
+[2021-10-16 17:6:15 pid:10953 tid:700009b65000  INFO: /Users/fyb/Documents/GitHub/miniob-1/deps/common/metrics/log_reporter.cpp report 35]>>SessionStage.sql:mean:0,tps:0
+[2021-10-16 17:6:15 pid:10953 tid:700009b65000  INFO: /Users/fyb/Documents/GitHub/miniob-1/deps/common/metrics/log_reporter.cpp report 35]>>SessionStage.writesocket:mean:0,tps:0
+[2021-10-16 17:7:15 pid:10953 tid:700009be8000  INFO: /Users/fyb/Documents/GitHub/miniob-1/deps/common/metrics/log_reporter.cpp report 35]>>DefaultStorageStage.query:mean:0,tps:0
+[2021-10-16 17:7:15 pid:10953 tid:700009be8000  INFO: /Users/fyb/Documents/GitHub/miniob-1/deps/common/metrics/log_reporter.cpp report 35]>>SessionStage.readsocket:mean:0,tps:0
+[2021-10-16 17:7:15 pid:10953 tid:700009be8000  INFO: /Users/fyb/Documents/GitHub/miniob-1/deps/common/metrics/log_reporter.cpp report 35]>>SessionStage.sql:mean:0,tps:0
+[2021-10-16 17:7:15 pid:10953 tid:700009be8000  INFO: /Users/fyb/Documents/GitHub/miniob-1/deps/common/metrics/log_reporter.cpp report 35]>>SessionStage.writesocket:mean:0,tps:0
+[2021-10-16 17:8:15 pid:10953 tid:700009ae2000  INFO: /Users/fyb/Documents/GitHub/miniob-1/deps/common/metrics/log_reporter.cpp report 35]>>DefaultStorageStage.query:mean:0,tps:0
+[2021-10-16 17:8:15 pid:10953 tid:700009ae2000  INFO: /Users/fyb/Documents/GitHub/miniob-1/deps/common/metrics/log_reporter.cpp report 35]>>SessionStage.readsocket:mean:0,tps:0
+[2021-10-16 17:8:15 pid:10953 tid:700009ae2000  INFO: /Users/fyb/Documents/GitHub/miniob-1/deps/common/metrics/log_reporter.cpp report 35]>>SessionStage.sql:mean:0,tps:0
+[2021-10-16 17:8:15 pid:10953 tid:700009ae2000  INFO: /Users/fyb/Documents/GitHub/miniob-1/deps/common/metrics/log_reporter.cpp report 35]>>SessionStage.writesocket:mean:0,tps:0
+[2021-10-16 17:9:15 pid:10953 tid:700009b65000  INFO: /Users/fyb/Documents/GitHub/miniob-1/deps/common/metrics/log_reporter.cpp report 35]>>DefaultStorageStage.query:mean:0,tps:0
+[2021-10-16 17:9:15 pid:10953 tid:700009b65000  INFO: /Users/fyb/Documents/GitHub/miniob-1/deps/common/metrics/log_reporter.cpp report 35]>>SessionStage.readsocket:mean:0,tps:0
+[2021-10-16 17:9:15 pid:10953 tid:700009b65000  INFO: /Users/fyb/Documents/GitHub/miniob-1/deps/common/metrics/log_reporter.cpp report 35]>>SessionStage.sql:mean:0,tps:0
+[2021-10-16 17:9:15 pid:10953 tid:700009b65000  INFO: /Users/fyb/Documents/GitHub/miniob-1/deps/common/metrics/log_reporter.cpp report 35]>>SessionStage.writesocket:mean:0,tps:0
+[2021-10-16 17:10:15 pid:10953 tid:700009be8000  INFO: /Users/fyb/Documents/GitHub/miniob-1/deps/common/metrics/log_reporter.cpp report 35]>>DefaultStorageStage.query:mean:0,tps:0
+[2021-10-16 17:10:15 pid:10953 tid:700009be8000  INFO: /Users/fyb/Documents/GitHub/miniob-1/deps/common/metrics/log_reporter.cpp report 35]>>SessionStage.readsocket:mean:0,tps:0
+[2021-10-16 17:10:15 pid:10953 tid:700009be8000  INFO: /Users/fyb/Documents/GitHub/miniob-1/deps/common/metrics/log_reporter.cpp report 35]>>SessionStage.sql:mean:0,tps:0
+[2021-10-16 17:10:15 pid:10953 tid:700009be8000  INFO: /Users/fyb/Documents/GitHub/miniob-1/deps/common/metrics/log_reporter.cpp report 35]>>SessionStage.writesocket:mean:0,tps:0
+[2021-10-16 17:24:3 pid:10953 tid:700009ae2000  INFO: /Users/fyb/Documents/GitHub/miniob-1/deps/common/metrics/log_reporter.cpp report 35]>>DefaultStorageStage.query:mean:0,tps:0
+[2021-10-16 17:24:3 pid:10953 tid:700009ae2000  INFO: /Users/fyb/Documents/GitHub/miniob-1/deps/common/metrics/log_reporter.cpp report 35]>>SessionStage.readsocket:mean:0,tps:0
+[2021-10-16 17:24:3 pid:10953 tid:700009ae2000  INFO: /Users/fyb/Documents/GitHub/miniob-1/deps/common/metrics/log_reporter.cpp report 35]>>SessionStage.sql:mean:0,tps:0
+[2021-10-16 17:24:3 pid:10953 tid:700009ae2000  INFO: /Users/fyb/Documents/GitHub/miniob-1/deps/common/metrics/log_reporter.cpp report 35]>>SessionStage.writesocket:mean:0,tps:0
+[2021-10-16 17:25:40 pid:10953 tid:700009b65000  INFO: /Users/fyb/Documents/GitHub/miniob-1/deps/common/metrics/log_reporter.cpp report 35]>>DefaultStorageStage.query:mean:0,tps:0
+[2021-10-16 17:25:40 pid:10953 tid:700009b65000  INFO: /Users/fyb/Documents/GitHub/miniob-1/deps/common/metrics/log_reporter.cpp report 35]>>SessionStage.readsocket:mean:0,tps:0
+[2021-10-16 17:25:40 pid:10953 tid:700009b65000  INFO: /Users/fyb/Documents/GitHub/miniob-1/deps/common/metrics/log_reporter.cpp report 35]>>SessionStage.sql:mean:0,tps:0
+[2021-10-16 17:25:40 pid:10953 tid:700009b65000  INFO: /Users/fyb/Documents/GitHub/miniob-1/deps/common/metrics/log_reporter.cpp report 35]>>SessionStage.writesocket:mean:0,tps:0
+[2021-10-16 17:43:58 pid:10953 tid:700009be8000  INFO: /Users/fyb/Documents/GitHub/miniob-1/deps/common/metrics/log_reporter.cpp report 35]>>DefaultStorageStage.query:mean:0,tps:0
+[2021-10-16 17:43:59 pid:10953 tid:700009be8000  INFO: /Users/fyb/Documents/GitHub/miniob-1/deps/common/metrics/log_reporter.cpp report 35]>>SessionStage.readsocket:mean:0,tps:0
+[2021-10-16 17:43:59 pid:10953 tid:700009be8000  INFO: /Users/fyb/Documents/GitHub/miniob-1/deps/common/metrics/log_reporter.cpp report 35]>>SessionStage.sql:mean:0,tps:0
+[2021-10-16 17:43:59 pid:10953 tid:700009be8000  INFO: /Users/fyb/Documents/GitHub/miniob-1/deps/common/metrics/log_reporter.cpp report 35]>>SessionStage.writesocket:mean:0,tps:0
+[2021-10-16 17:59:48 pid:10953 tid:700009ae2000  INFO: /Users/fyb/Documents/GitHub/miniob-1/deps/common/metrics/log_reporter.cpp report 35]>>DefaultStorageStage.query:mean:0,tps:0
+[2021-10-16 17:59:48 pid:10953 tid:700009ae2000  INFO: /Users/fyb/Documents/GitHub/miniob-1/deps/common/metrics/log_reporter.cpp report 35]>>SessionStage.readsocket:mean:0,tps:0
+[2021-10-16 17:59:48 pid:10953 tid:700009ae2000  INFO: /Users/fyb/Documents/GitHub/miniob-1/deps/common/metrics/log_reporter.cpp report 35]>>SessionStage.sql:mean:0,tps:0
+[2021-10-16 17:59:48 pid:10953 tid:700009ae2000  INFO: /Users/fyb/Documents/GitHub/miniob-1/deps/common/metrics/log_reporter.cpp report 35]>>SessionStage.writesocket:mean:0,tps:0
+[2021-10-16 18:14:49 pid:10953 tid:700009b65000  INFO: /Users/fyb/Documents/GitHub/miniob-1/deps/common/metrics/log_reporter.cpp report 35]>>DefaultStorageStage.query:mean:0,tps:0
+[2021-10-16 18:14:49 pid:10953 tid:700009b65000  INFO: /Users/fyb/Documents/GitHub/miniob-1/deps/common/metrics/log_reporter.cpp report 35]>>SessionStage.readsocket:mean:0,tps:0
+[2021-10-16 18:14:49 pid:10953 tid:700009b65000  INFO: /Users/fyb/Documents/GitHub/miniob-1/deps/common/metrics/log_reporter.cpp report 35]>>SessionStage.sql:mean:0,tps:0
+[2021-10-16 18:14:49 pid:10953 tid:700009b65000  INFO: /Users/fyb/Documents/GitHub/miniob-1/deps/common/metrics/log_reporter.cpp report 35]>>SessionStage.writesocket:mean:0,tps:0
+[2021-10-16 18:38:10 pid:10953 tid:700009be8000  INFO: /Users/fyb/Documents/GitHub/miniob-1/deps/common/metrics/log_reporter.cpp report 35]>>DefaultStorageStage.query:mean:0,tps:0
+[2021-10-16 18:38:10 pid:10953 tid:700009be8000  INFO: /Users/fyb/Documents/GitHub/miniob-1/deps/common/metrics/log_reporter.cpp report 35]>>SessionStage.readsocket:mean:0,tps:0
+[2021-10-16 18:38:10 pid:10953 tid:700009be8000  INFO: /Users/fyb/Documents/GitHub/miniob-1/deps/common/metrics/log_reporter.cpp report 35]>>SessionStage.sql:mean:0,tps:0
+[2021-10-16 18:38:10 pid:10953 tid:700009be8000  INFO: /Users/fyb/Documents/GitHub/miniob-1/deps/common/metrics/log_reporter.cpp report 35]>>SessionStage.writesocket:mean:0,tps:0
+[2021-10-16 18:39:10 pid:10953 tid:700009ae2000  INFO: /Users/fyb/Documents/GitHub/miniob-1/deps/common/metrics/log_reporter.cpp report 35]>>DefaultStorageStage.query:mean:0,tps:0
+[2021-10-16 18:39:10 pid:10953 tid:700009ae2000  INFO: /Users/fyb/Documents/GitHub/miniob-1/deps/common/metrics/log_reporter.cpp report 35]>>SessionStage.readsocket:mean:0,tps:0
+[2021-10-16 18:39:10 pid:10953 tid:700009ae2000  INFO: /Users/fyb/Documents/GitHub/miniob-1/deps/common/metrics/log_reporter.cpp report 35]>>SessionStage.sql:mean:0,tps:0
+[2021-10-16 18:39:10 pid:10953 tid:700009ae2000  INFO: /Users/fyb/Documents/GitHub/miniob-1/deps/common/metrics/log_reporter.cpp report 35]>>SessionStage.writesocket:mean:0,tps:0
+[2021-10-16 19:14:58 pid:10953 tid:700009b65000  INFO: /Users/fyb/Documents/GitHub/miniob-1/deps/common/metrics/log_reporter.cpp report 35]>>DefaultStorageStage.query:mean:0,tps:0
+[2021-10-16 19:14:58 pid:10953 tid:700009b65000  INFO: /Users/fyb/Documents/GitHub/miniob-1/deps/common/metrics/log_reporter.cpp report 35]>>SessionStage.readsocket:mean:0,tps:0
+[2021-10-16 19:14:58 pid:10953 tid:700009b65000  INFO: /Users/fyb/Documents/GitHub/miniob-1/deps/common/metrics/log_reporter.cpp report 35]>>SessionStage.sql:mean:0,tps:0
+[2021-10-16 19:14:58 pid:10953 tid:700009b65000  INFO: /Users/fyb/Documents/GitHub/miniob-1/deps/common/metrics/log_reporter.cpp report 35]>>SessionStage.writesocket:mean:0,tps:0
+[2021-10-16 19:15:58 pid:10953 tid:700009be8000  INFO: /Users/fyb/Documents/GitHub/miniob-1/deps/common/metrics/log_reporter.cpp report 35]>>DefaultStorageStage.query:mean:0,tps:0
+[2021-10-16 19:15:58 pid:10953 tid:700009be8000  INFO: /Users/fyb/Documents/GitHub/miniob-1/deps/common/metrics/log_reporter.cpp report 35]>>SessionStage.readsocket:mean:0,tps:0
+[2021-10-16 19:15:58 pid:10953 tid:700009be8000  INFO: /Users/fyb/Documents/GitHub/miniob-1/deps/common/metrics/log_reporter.cpp report 35]>>SessionStage.sql:mean:0,tps:0
+[2021-10-16 19:15:58 pid:10953 tid:700009be8000  INFO: /Users/fyb/Documents/GitHub/miniob-1/deps/common/metrics/log_reporter.cpp report 35]>>SessionStage.writesocket:mean:0,tps:0
+[2021-10-16 19:58:36 pid:10953 tid:700009ae2000  INFO: /Users/fyb/Documents/GitHub/miniob-1/deps/common/metrics/log_reporter.cpp report 35]>>DefaultStorageStage.query:mean:0,tps:0
+[2021-10-16 19:58:36 pid:10953 tid:700009ae2000  INFO: /Users/fyb/Documents/GitHub/miniob-1/deps/common/metrics/log_reporter.cpp report 35]>>SessionStage.readsocket:mean:0,tps:0
+[2021-10-16 19:58:36 pid:10953 tid:700009ae2000  INFO: /Users/fyb/Documents/GitHub/miniob-1/deps/common/metrics/log_reporter.cpp report 35]>>SessionStage.sql:mean:0,tps:0
+[2021-10-16 19:58:36 pid:10953 tid:700009ae2000  INFO: /Users/fyb/Documents/GitHub/miniob-1/deps/common/metrics/log_reporter.cpp report 35]>>SessionStage.writesocket:mean:0,tps:0
+[2021-10-16 19:59:36 pid:10953 tid:700009b65000  INFO: /Users/fyb/Documents/GitHub/miniob-1/deps/common/metrics/log_reporter.cpp report 35]>>DefaultStorageStage.query:mean:0,tps:0
+[2021-10-16 19:59:36 pid:10953 tid:700009b65000  INFO: /Users/fyb/Documents/GitHub/miniob-1/deps/common/metrics/log_reporter.cpp report 35]>>SessionStage.readsocket:mean:0,tps:0
+[2021-10-16 19:59:36 pid:10953 tid:700009b65000  INFO: /Users/fyb/Documents/GitHub/miniob-1/deps/common/metrics/log_reporter.cpp report 35]>>SessionStage.sql:mean:0,tps:0
+[2021-10-16 19:59:36 pid:10953 tid:700009b65000  INFO: /Users/fyb/Documents/GitHub/miniob-1/deps/common/metrics/log_reporter.cpp report 35]>>SessionStage.writesocket:mean:0,tps:0
+[2021-10-16 20:36:21 pid:10953 tid:700009be8000  INFO: /Users/fyb/Documents/GitHub/miniob-1/deps/common/metrics/log_reporter.cpp report 35]>>DefaultStorageStage.query:mean:0,tps:0
+[2021-10-16 20:36:21 pid:10953 tid:700009be8000  INFO: /Users/fyb/Documents/GitHub/miniob-1/deps/common/metrics/log_reporter.cpp report 35]>>SessionStage.readsocket:mean:0,tps:0
+[2021-10-16 20:36:21 pid:10953 tid:700009be8000  INFO: /Users/fyb/Documents/GitHub/miniob-1/deps/common/metrics/log_reporter.cpp report 35]>>SessionStage.sql:mean:0,tps:0
+[2021-10-16 20:36:21 pid:10953 tid:700009be8000  INFO: /Users/fyb/Documents/GitHub/miniob-1/deps/common/metrics/log_reporter.cpp report 35]>>SessionStage.writesocket:mean:0,tps:0
+[2021-10-16 20:37:21 pid:10953 tid:700009ae2000  INFO: /Users/fyb/Documents/GitHub/miniob-1/deps/common/metrics/log_reporter.cpp report 35]>>DefaultStorageStage.query:mean:0,tps:0
+[2021-10-16 20:37:21 pid:10953 tid:700009ae2000  INFO: /Users/fyb/Documents/GitHub/miniob-1/deps/common/metrics/log_reporter.cpp report 35]>>SessionStage.readsocket:mean:0,tps:0
+[2021-10-16 20:37:21 pid:10953 tid:700009ae2000  INFO: /Users/fyb/Documents/GitHub/miniob-1/deps/common/metrics/log_reporter.cpp report 35]>>SessionStage.sql:mean:0,tps:0
+[2021-10-16 20:37:21 pid:10953 tid:700009ae2000  INFO: /Users/fyb/Documents/GitHub/miniob-1/deps/common/metrics/log_reporter.cpp report 35]>>SessionStage.writesocket:mean:0,tps:0
+[2021-10-16 21:16:31 pid:10953 tid:700009b65000  INFO: /Users/fyb/Documents/GitHub/miniob-1/deps/common/metrics/log_reporter.cpp report 35]>>DefaultStorageStage.query:mean:0,tps:0
+[2021-10-16 21:16:31 pid:10953 tid:700009b65000  INFO: /Users/fyb/Documents/GitHub/miniob-1/deps/common/metrics/log_reporter.cpp report 35]>>SessionStage.readsocket:mean:0,tps:0
+[2021-10-16 21:16:31 pid:10953 tid:700009b65000  INFO: /Users/fyb/Documents/GitHub/miniob-1/deps/common/metrics/log_reporter.cpp report 35]>>SessionStage.sql:mean:0,tps:0
+[2021-10-16 21:16:31 pid:10953 tid:700009b65000  INFO: /Users/fyb/Documents/GitHub/miniob-1/deps/common/metrics/log_reporter.cpp report 35]>>SessionStage.writesocket:mean:0,tps:0
+[2021-10-16 21:17:31 pid:10953 tid:700009be8000  INFO: /Users/fyb/Documents/GitHub/miniob-1/deps/common/metrics/log_reporter.cpp report 35]>>DefaultStorageStage.query:mean:0,tps:0
+[2021-10-16 21:17:31 pid:10953 tid:700009be8000  INFO: /Users/fyb/Documents/GitHub/miniob-1/deps/common/metrics/log_reporter.cpp report 35]>>SessionStage.readsocket:mean:0,tps:0
+[2021-10-16 21:17:31 pid:10953 tid:700009be8000  INFO: /Users/fyb/Documents/GitHub/miniob-1/deps/common/metrics/log_reporter.cpp report 35]>>SessionStage.sql:mean:0,tps:0
+[2021-10-16 21:17:31 pid:10953 tid:700009be8000  INFO: /Users/fyb/Documents/GitHub/miniob-1/deps/common/metrics/log_reporter.cpp report 35]>>SessionStage.writesocket:mean:0,tps:0
+[2021-10-16 21:18:31 pid:10953 tid:700009ae2000  INFO: /Users/fyb/Documents/GitHub/miniob-1/deps/common/metrics/log_reporter.cpp report 35]>>DefaultStorageStage.query:mean:0,tps:0
+[2021-10-16 21:18:31 pid:10953 tid:700009ae2000  INFO: /Users/fyb/Documents/GitHub/miniob-1/deps/common/metrics/log_reporter.cpp report 35]>>SessionStage.readsocket:mean:0,tps:0
+[2021-10-16 21:18:31 pid:10953 tid:700009ae2000  INFO: /Users/fyb/Documents/GitHub/miniob-1/deps/common/metrics/log_reporter.cpp report 35]>>SessionStage.sql:mean:0,tps:0
+[2021-10-16 21:18:31 pid:10953 tid:700009ae2000  INFO: /Users/fyb/Documents/GitHub/miniob-1/deps/common/metrics/log_reporter.cpp report 35]>>SessionStage.writesocket:mean:0,tps:0
+[2021-10-16 21:19:57 pid:10953 tid:700009b65000  INFO: /Users/fyb/Documents/GitHub/miniob-1/deps/common/metrics/log_reporter.cpp report 35]>>DefaultStorageStage.query:mean:0,tps:0
+[2021-10-16 21:19:57 pid:10953 tid:700009b65000  INFO: /Users/fyb/Documents/GitHub/miniob-1/deps/common/metrics/log_reporter.cpp report 35]>>SessionStage.readsocket:mean:0,tps:0
+[2021-10-16 21:19:57 pid:10953 tid:700009b65000  INFO: /Users/fyb/Documents/GitHub/miniob-1/deps/common/metrics/log_reporter.cpp report 35]>>SessionStage.sql:mean:0,tps:0
+[2021-10-16 21:19:57 pid:10953 tid:700009b65000  INFO: /Users/fyb/Documents/GitHub/miniob-1/deps/common/metrics/log_reporter.cpp report 35]>>SessionStage.writesocket:mean:0,tps:0
+[2021-10-16 21:35:44 pid:10953 tid:700009be8000  INFO: /Users/fyb/Documents/GitHub/miniob-1/deps/common/metrics/log_reporter.cpp report 35]>>DefaultStorageStage.query:mean:0,tps:0
+[2021-10-16 21:35:44 pid:10953 tid:700009be8000  INFO: /Users/fyb/Documents/GitHub/miniob-1/deps/common/metrics/log_reporter.cpp report 35]>>SessionStage.readsocket:mean:0,tps:0
+[2021-10-16 21:35:44 pid:10953 tid:700009be8000  INFO: /Users/fyb/Documents/GitHub/miniob-1/deps/common/metrics/log_reporter.cpp report 35]>>SessionStage.sql:mean:0,tps:0
+[2021-10-16 21:35:44 pid:10953 tid:700009be8000  INFO: /Users/fyb/Documents/GitHub/miniob-1/deps/common/metrics/log_reporter.cpp report 35]>>SessionStage.writesocket:mean:0,tps:0
+[2021-10-16 22:1:34 pid:10953 tid:700009ae2000  INFO: /Users/fyb/Documents/GitHub/miniob-1/deps/common/metrics/log_reporter.cpp report 35]>>DefaultStorageStage.query:mean:0,tps:0
+[2021-10-16 22:1:34 pid:10953 tid:700009ae2000  INFO: /Users/fyb/Documents/GitHub/miniob-1/deps/common/metrics/log_reporter.cpp report 35]>>SessionStage.readsocket:mean:0,tps:0
+[2021-10-16 22:1:34 pid:10953 tid:700009ae2000  INFO: /Users/fyb/Documents/GitHub/miniob-1/deps/common/metrics/log_reporter.cpp report 35]>>SessionStage.sql:mean:0,tps:0
+[2021-10-16 22:1:34 pid:10953 tid:700009ae2000  INFO: /Users/fyb/Documents/GitHub/miniob-1/deps/common/metrics/log_reporter.cpp report 35]>>SessionStage.writesocket:mean:0,tps:0
+[2021-10-16 22:2:34 pid:10953 tid:700009b65000  INFO: /Users/fyb/Documents/GitHub/miniob-1/deps/common/metrics/log_reporter.cpp report 35]>>DefaultStorageStage.query:mean:0,tps:0
+[2021-10-16 22:2:34 pid:10953 tid:700009b65000  INFO: /Users/fyb/Documents/GitHub/miniob-1/deps/common/metrics/log_reporter.cpp report 35]>>SessionStage.readsocket:mean:0,tps:0
+[2021-10-16 22:2:34 pid:10953 tid:700009b65000  INFO: /Users/fyb/Documents/GitHub/miniob-1/deps/common/metrics/log_reporter.cpp report 35]>>SessionStage.sql:mean:0,tps:0
+[2021-10-16 22:2:34 pid:10953 tid:700009b65000  INFO: /Users/fyb/Documents/GitHub/miniob-1/deps/common/metrics/log_reporter.cpp report 35]>>SessionStage.writesocket:mean:0,tps:0
+[2021-10-16 22:47:43 pid:10953 tid:700009be8000  INFO: /Users/fyb/Documents/GitHub/miniob-1/deps/common/metrics/log_reporter.cpp report 35]>>DefaultStorageStage.query:mean:0,tps:0
+[2021-10-16 22:47:43 pid:10953 tid:700009be8000  INFO: /Users/fyb/Documents/GitHub/miniob-1/deps/common/metrics/log_reporter.cpp report 35]>>SessionStage.readsocket:mean:0,tps:0
+[2021-10-16 22:47:43 pid:10953 tid:700009be8000  INFO: /Users/fyb/Documents/GitHub/miniob-1/deps/common/metrics/log_reporter.cpp report 35]>>SessionStage.sql:mean:0,tps:0
+[2021-10-16 22:47:43 pid:10953 tid:700009be8000  INFO: /Users/fyb/Documents/GitHub/miniob-1/deps/common/metrics/log_reporter.cpp report 35]>>SessionStage.writesocket:mean:0,tps:0
+[2021-10-16 22:49:20 pid:10953 tid:700009ae2000  INFO: /Users/fyb/Documents/GitHub/miniob-1/deps/common/metrics/log_reporter.cpp report 35]>>DefaultStorageStage.query:mean:0,tps:0
+[2021-10-16 22:49:20 pid:10953 tid:700009ae2000  INFO: /Users/fyb/Documents/GitHub/miniob-1/deps/common/metrics/log_reporter.cpp report 35]>>SessionStage.readsocket:mean:0,tps:0
+[2021-10-16 22:49:20 pid:10953 tid:700009ae2000  INFO: /Users/fyb/Documents/GitHub/miniob-1/deps/common/metrics/log_reporter.cpp report 35]>>SessionStage.sql:mean:0,tps:0
+[2021-10-16 22:49:20 pid:10953 tid:700009ae2000  INFO: /Users/fyb/Documents/GitHub/miniob-1/deps/common/metrics/log_reporter.cpp report 35]>>SessionStage.writesocket:mean:0,tps:0
+[2021-10-16 22:50:57 pid:10953 tid:700009b65000  INFO: /Users/fyb/Documents/GitHub/miniob-1/deps/common/metrics/log_reporter.cpp report 35]>>DefaultStorageStage.query:mean:0,tps:0
+[2021-10-16 22:50:57 pid:10953 tid:700009b65000  INFO: /Users/fyb/Documents/GitHub/miniob-1/deps/common/metrics/log_reporter.cpp report 35]>>SessionStage.readsocket:mean:0,tps:0
+[2021-10-16 22:50:57 pid:10953 tid:700009b65000  INFO: /Users/fyb/Documents/GitHub/miniob-1/deps/common/metrics/log_reporter.cpp report 35]>>SessionStage.sql:mean:0,tps:0
+[2021-10-16 22:50:57 pid:10953 tid:700009b65000  INFO: /Users/fyb/Documents/GitHub/miniob-1/deps/common/metrics/log_reporter.cpp report 35]>>SessionStage.writesocket:mean:0,tps:0
+[2021-10-16 22:52:41 pid:10953 tid:700009be8000  INFO: /Users/fyb/Documents/GitHub/miniob-1/deps/common/metrics/log_reporter.cpp report 35]>>DefaultStorageStage.query:mean:0,tps:0
+[2021-10-16 22:52:41 pid:10953 tid:700009be8000  INFO: /Users/fyb/Documents/GitHub/miniob-1/deps/common/metrics/log_reporter.cpp report 35]>>SessionStage.readsocket:mean:0,tps:0
+[2021-10-16 22:52:41 pid:10953 tid:700009be8000  INFO: /Users/fyb/Documents/GitHub/miniob-1/deps/common/metrics/log_reporter.cpp report 35]>>SessionStage.sql:mean:0,tps:0
+[2021-10-16 22:52:41 pid:10953 tid:700009be8000  INFO: /Users/fyb/Documents/GitHub/miniob-1/deps/common/metrics/log_reporter.cpp report 35]>>SessionStage.writesocket:mean:0,tps:0
+[2021-10-16 22:54:19 pid:10953 tid:700009ae2000  INFO: /Users/fyb/Documents/GitHub/miniob-1/deps/common/metrics/log_reporter.cpp report 35]>>DefaultStorageStage.query:mean:0,tps:0
+[2021-10-16 22:54:19 pid:10953 tid:700009ae2000  INFO: /Users/fyb/Documents/GitHub/miniob-1/deps/common/metrics/log_reporter.cpp report 35]>>SessionStage.readsocket:mean:0,tps:0
+[2021-10-16 22:54:19 pid:10953 tid:700009ae2000  INFO: /Users/fyb/Documents/GitHub/miniob-1/deps/common/metrics/log_reporter.cpp report 35]>>SessionStage.sql:mean:0,tps:0
+[2021-10-16 22:54:19 pid:10953 tid:700009ae2000  INFO: /Users/fyb/Documents/GitHub/miniob-1/deps/common/metrics/log_reporter.cpp report 35]>>SessionStage.writesocket:mean:0,tps:0
+[2021-10-16 23:12:42 pid:10953 tid:700009b65000  INFO: /Users/fyb/Documents/GitHub/miniob-1/deps/common/metrics/log_reporter.cpp report 35]>>DefaultStorageStage.query:mean:0,tps:0
+[2021-10-16 23:12:42 pid:10953 tid:700009b65000  INFO: /Users/fyb/Documents/GitHub/miniob-1/deps/common/metrics/log_reporter.cpp report 35]>>SessionStage.readsocket:mean:0,tps:0
+[2021-10-16 23:12:42 pid:10953 tid:700009b65000  INFO: /Users/fyb/Documents/GitHub/miniob-1/deps/common/metrics/log_reporter.cpp report 35]>>SessionStage.sql:mean:0,tps:0
+[2021-10-16 23:12:42 pid:10953 tid:700009b65000  INFO: /Users/fyb/Documents/GitHub/miniob-1/deps/common/metrics/log_reporter.cpp report 35]>>SessionStage.writesocket:mean:0,tps:0
+[2021-10-16 23:13:42 pid:10953 tid:700009be8000  INFO: /Users/fyb/Documents/GitHub/miniob-1/deps/common/metrics/log_reporter.cpp report 35]>>DefaultStorageStage.query:mean:0,tps:0
+[2021-10-16 23:13:42 pid:10953 tid:700009be8000  INFO: /Users/fyb/Documents/GitHub/miniob-1/deps/common/metrics/log_reporter.cpp report 35]>>SessionStage.readsocket:mean:0,tps:0
+[2021-10-16 23:13:42 pid:10953 tid:700009be8000  INFO: /Users/fyb/Documents/GitHub/miniob-1/deps/common/metrics/log_reporter.cpp report 35]>>SessionStage.sql:mean:0,tps:0
+[2021-10-16 23:13:42 pid:10953 tid:700009be8000  INFO: /Users/fyb/Documents/GitHub/miniob-1/deps/common/metrics/log_reporter.cpp report 35]>>SessionStage.writesocket:mean:0,tps:0
+[2021-10-16 23:14:42 pid:10953 tid:700009ae2000  INFO: /Users/fyb/Documents/GitHub/miniob-1/deps/common/metrics/log_reporter.cpp report 35]>>DefaultStorageStage.query:mean:0,tps:0
+[2021-10-16 23:14:42 pid:10953 tid:700009ae2000  INFO: /Users/fyb/Documents/GitHub/miniob-1/deps/common/metrics/log_reporter.cpp report 35]>>SessionStage.readsocket:mean:0,tps:0
+[2021-10-16 23:14:42 pid:10953 tid:700009ae2000  INFO: /Users/fyb/Documents/GitHub/miniob-1/deps/common/metrics/log_reporter.cpp report 35]>>SessionStage.sql:mean:0,tps:0
+[2021-10-16 23:14:42 pid:10953 tid:700009ae2000  INFO: /Users/fyb/Documents/GitHub/miniob-1/deps/common/metrics/log_reporter.cpp report 35]>>SessionStage.writesocket:mean:0,tps:0
+[2021-10-16 23:30:10 pid:10953 tid:700009b65000  INFO: /Users/fyb/Documents/GitHub/miniob-1/deps/common/metrics/log_reporter.cpp report 35]>>DefaultStorageStage.query:mean:0,tps:0
+[2021-10-16 23:30:11 pid:10953 tid:700009b65000  INFO: /Users/fyb/Documents/GitHub/miniob-1/deps/common/metrics/log_reporter.cpp report 35]>>SessionStage.readsocket:mean:0,tps:0
+[2021-10-16 23:30:11 pid:10953 tid:700009b65000  INFO: /Users/fyb/Documents/GitHub/miniob-1/deps/common/metrics/log_reporter.cpp report 35]>>SessionStage.sql:mean:0,tps:0
+[2021-10-16 23:30:11 pid:10953 tid:700009b65000  INFO: /Users/fyb/Documents/GitHub/miniob-1/deps/common/metrics/log_reporter.cpp report 35]>>SessionStage.writesocket:mean:0,tps:0
+[2021-10-16 23:31:48 pid:10953 tid:700009be8000  INFO: /Users/fyb/Documents/GitHub/miniob-1/deps/common/metrics/log_reporter.cpp report 35]>>DefaultStorageStage.query:mean:0,tps:0
+[2021-10-16 23:31:48 pid:10953 tid:700009be8000  INFO: /Users/fyb/Documents/GitHub/miniob-1/deps/common/metrics/log_reporter.cpp report 35]>>SessionStage.readsocket:mean:0,tps:0
+[2021-10-16 23:31:48 pid:10953 tid:700009be8000  INFO: /Users/fyb/Documents/GitHub/miniob-1/deps/common/metrics/log_reporter.cpp report 35]>>SessionStage.sql:mean:0,tps:0
+[2021-10-16 23:31:48 pid:10953 tid:700009be8000  INFO: /Users/fyb/Documents/GitHub/miniob-1/deps/common/metrics/log_reporter.cpp report 35]>>SessionStage.writesocket:mean:0,tps:0
+[2021-10-16 23:33:29 pid:10953 tid:700009ae2000  INFO: /Users/fyb/Documents/GitHub/miniob-1/deps/common/metrics/log_reporter.cpp report 35]>>DefaultStorageStage.query:mean:0,tps:0
+[2021-10-16 23:33:29 pid:10953 tid:700009ae2000  INFO: /Users/fyb/Documents/GitHub/miniob-1/deps/common/metrics/log_reporter.cpp report 35]>>SessionStage.readsocket:mean:0,tps:0
+[2021-10-16 23:33:29 pid:10953 tid:700009ae2000  INFO: /Users/fyb/Documents/GitHub/miniob-1/deps/common/metrics/log_reporter.cpp report 35]>>SessionStage.sql:mean:0,tps:0
+[2021-10-16 23:33:29 pid:10953 tid:700009ae2000  INFO: /Users/fyb/Documents/GitHub/miniob-1/deps/common/metrics/log_reporter.cpp report 35]>>SessionStage.writesocket:mean:0,tps:0
+[2021-10-16 23:35:8 pid:10953 tid:700009b65000  INFO: /Users/fyb/Documents/GitHub/miniob-1/deps/common/metrics/log_reporter.cpp report 35]>>DefaultStorageStage.query:mean:0,tps:0
+[2021-10-16 23:35:8 pid:10953 tid:700009b65000  INFO: /Users/fyb/Documents/GitHub/miniob-1/deps/common/metrics/log_reporter.cpp report 35]>>SessionStage.readsocket:mean:0,tps:0
+[2021-10-16 23:35:8 pid:10953 tid:700009b65000  INFO: /Users/fyb/Documents/GitHub/miniob-1/deps/common/metrics/log_reporter.cpp report 35]>>SessionStage.sql:mean:0,tps:0
+[2021-10-16 23:35:8 pid:10953 tid:700009b65000  INFO: /Users/fyb/Documents/GitHub/miniob-1/deps/common/metrics/log_reporter.cpp report 35]>>SessionStage.writesocket:mean:0,tps:0
+[2021-10-16 23:36:45 pid:10953 tid:700009be8000  INFO: /Users/fyb/Documents/GitHub/miniob-1/deps/common/metrics/log_reporter.cpp report 35]>>DefaultStorageStage.query:mean:0,tps:0
+[2021-10-16 23:36:45 pid:10953 tid:700009be8000  INFO: /Users/fyb/Documents/GitHub/miniob-1/deps/common/metrics/log_reporter.cpp report 35]>>SessionStage.readsocket:mean:0,tps:0
+[2021-10-16 23:36:45 pid:10953 tid:700009be8000  INFO: /Users/fyb/Documents/GitHub/miniob-1/deps/common/metrics/log_reporter.cpp report 35]>>SessionStage.sql:mean:0,tps:0
+[2021-10-16 23:36:45 pid:10953 tid:700009be8000  INFO: /Users/fyb/Documents/GitHub/miniob-1/deps/common/metrics/log_reporter.cpp report 35]>>SessionStage.writesocket:mean:0,tps:0
+[2021-10-16 23:38:22 pid:10953 tid:700009ae2000  INFO: /Users/fyb/Documents/GitHub/miniob-1/deps/common/metrics/log_reporter.cpp report 35]>>DefaultStorageStage.query:mean:0,tps:0
+[2021-10-16 23:38:22 pid:10953 tid:700009ae2000  INFO: /Users/fyb/Documents/GitHub/miniob-1/deps/common/metrics/log_reporter.cpp report 35]>>SessionStage.readsocket:mean:0,tps:0
+[2021-10-16 23:38:22 pid:10953 tid:700009ae2000  INFO: /Users/fyb/Documents/GitHub/miniob-1/deps/common/metrics/log_reporter.cpp report 35]>>SessionStage.sql:mean:0,tps:0
+[2021-10-16 23:38:22 pid:10953 tid:700009ae2000  INFO: /Users/fyb/Documents/GitHub/miniob-1/deps/common/metrics/log_reporter.cpp report 35]>>SessionStage.writesocket:mean:0,tps:0
+[2021-10-16 23:53:23 pid:10953 tid:700009b65000  INFO: /Users/fyb/Documents/GitHub/miniob-1/deps/common/metrics/log_reporter.cpp report 35]>>DefaultStorageStage.query:mean:0,tps:0
+[2021-10-16 23:53:23 pid:10953 tid:700009b65000  INFO: /Users/fyb/Documents/GitHub/miniob-1/deps/common/metrics/log_reporter.cpp report 35]>>SessionStage.readsocket:mean:0,tps:0
+[2021-10-16 23:53:23 pid:10953 tid:700009b65000  INFO: /Users/fyb/Documents/GitHub/miniob-1/deps/common/metrics/log_reporter.cpp report 35]>>SessionStage.sql:mean:0,tps:0
+[2021-10-16 23:53:23 pid:10953 tid:700009b65000  INFO: /Users/fyb/Documents/GitHub/miniob-1/deps/common/metrics/log_reporter.cpp report 35]>>SessionStage.writesocket:mean:0,tps:0
+[2021-10-16 23:55:0 pid:10953 tid:700009be8000  INFO: /Users/fyb/Documents/GitHub/miniob-1/deps/common/metrics/log_reporter.cpp report 35]>>DefaultStorageStage.query:mean:0,tps:0
+[2021-10-16 23:55:0 pid:10953 tid:700009be8000  INFO: /Users/fyb/Documents/GitHub/miniob-1/deps/common/metrics/log_reporter.cpp report 35]>>SessionStage.readsocket:mean:0,tps:0
+[2021-10-16 23:55:0 pid:10953 tid:700009be8000  INFO: /Users/fyb/Documents/GitHub/miniob-1/deps/common/metrics/log_reporter.cpp report 35]>>SessionStage.sql:mean:0,tps:0
+[2021-10-16 23:55:0 pid:10953 tid:700009be8000  INFO: /Users/fyb/Documents/GitHub/miniob-1/deps/common/metrics/log_reporter.cpp report 35]>>SessionStage.writesocket:mean:0,tps:0
+[2021-10-16 23:56:39 pid:10953 tid:700009ae2000  INFO: /Users/fyb/Documents/GitHub/miniob-1/deps/common/metrics/log_reporter.cpp report 35]>>DefaultStorageStage.query:mean:0,tps:0
+[2021-10-16 23:56:39 pid:10953 tid:700009ae2000  INFO: /Users/fyb/Documents/GitHub/miniob-1/deps/common/metrics/log_reporter.cpp report 35]>>SessionStage.readsocket:mean:0,tps:0
+[2021-10-16 23:56:39 pid:10953 tid:700009ae2000  INFO: /Users/fyb/Documents/GitHub/miniob-1/deps/common/metrics/log_reporter.cpp report 35]>>SessionStage.sql:mean:0,tps:0
+[2021-10-16 23:56:39 pid:10953 tid:700009ae2000  INFO: /Users/fyb/Documents/GitHub/miniob-1/deps/common/metrics/log_reporter.cpp report 35]>>SessionStage.writesocket:mean:0,tps:0
+[2021-10-16 23:58:16 pid:10953 tid:700009b65000  INFO: /Users/fyb/Documents/GitHub/miniob-1/deps/common/metrics/log_reporter.cpp report 35]>>DefaultStorageStage.query:mean:0,tps:0
+[2021-10-16 23:58:17 pid:10953 tid:700009b65000  INFO: /Users/fyb/Documents/GitHub/miniob-1/deps/common/metrics/log_reporter.cpp report 35]>>SessionStage.readsocket:mean:0,tps:0
+[2021-10-16 23:58:17 pid:10953 tid:700009b65000  INFO: /Users/fyb/Documents/GitHub/miniob-1/deps/common/metrics/log_reporter.cpp report 35]>>SessionStage.sql:mean:0,tps:0
+[2021-10-16 23:58:17 pid:10953 tid:700009b65000  INFO: /Users/fyb/Documents/GitHub/miniob-1/deps/common/metrics/log_reporter.cpp report 35]>>SessionStage.writesocket:mean:0,tps:0
+[2021-10-16 23:59:54 pid:10953 tid:700009be8000  INFO: /Users/fyb/Documents/GitHub/miniob-1/deps/common/metrics/log_reporter.cpp report 35]>>DefaultStorageStage.query:mean:0,tps:0
+[2021-10-16 23:59:54 pid:10953 tid:700009be8000  INFO: /Users/fyb/Documents/GitHub/miniob-1/deps/common/metrics/log_reporter.cpp report 35]>>SessionStage.readsocket:mean:0,tps:0
+[2021-10-16 23:59:54 pid:10953 tid:700009be8000  INFO: /Users/fyb/Documents/GitHub/miniob-1/deps/common/metrics/log_reporter.cpp report 35]>>SessionStage.sql:mean:0,tps:0
+[2021-10-16 23:59:54 pid:10953 tid:700009be8000  INFO: /Users/fyb/Documents/GitHub/miniob-1/deps/common/metrics/log_reporter.cpp report 35]>>SessionStage.writesocket:mean:0,tps:0
